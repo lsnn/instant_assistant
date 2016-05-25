@@ -1,16 +1,21 @@
-<header class="mainheader">
+ <header class="mainheader">
   <div class="container sm-pt-1 sm-pb-1">
     <h1 class="h3">Instant Assistant</h1>
     <nav class="mainheader__nav">
       <ul>
-        <li><%= link_to "Create a task", root_path %></li>
+        <li><a href="" class="active">Create a task</a></li>
         <li><%= link_to "Show me tasks", tasks_path, :class => 'active' %></li>
+        <li><%= link_to "Assistant", new_assistant_path %></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <main class="container sm-pt-1 sm-pb-1 md-pt-2 md-pb-2">
+  <% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+  <% end -%>
+
   <ul class="tasks">
     <% @tasks.each do |t| %>
     <li class="task <%= 'taken' if t.available == false %>">
@@ -20,7 +25,7 @@
         <% if t.available == true %>
           <p class="est">You'll earn:&euro; 50</p>
           <%= link_to "Pick this task", {controller: 'tasks', action: 'assign_task', id: t.id},
-          class: 'button button-small' %>
+          class: 'button button--small' %>
         <% else %>
           <div class="checkblock">
           Task was taken by <%= t.assistant.full_name.split(' ').first %><br>
@@ -36,11 +41,6 @@
       <p>This is just a dummy description</p>
 
       <div class="actions">
-<!--         <p>
-          Task is taken by Ivana
-          <br>
-          <time>25 May 2016 at 13:30</time>
-        </p> -->
         <div class="checkblock">
           Task is taken by Ivana<br>
           <time>25 May 2016 at 13:30</time>

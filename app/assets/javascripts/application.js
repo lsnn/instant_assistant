@@ -197,7 +197,6 @@ $(document).ready(function() {
 	$('[data-push-notification]').click(function(e) {
 		var amount = $(this).attr('data-push-notification');
 		var title = $(this).attr('data-push-notification-title');
-		console.log(title, amount);
 		var getUrl = 'https://sgw01.cm.nl/gateway.ashx?producttoken=68a24a54-64c3-49bd-b7db-e83cf6f31a40&body=Hello+Ivana+is+taking+care+of+' + title + '+for+' + amount + 'EUR&to=0031621977967&from=ivana&reference=your_reference';
 		console.log(getUrl);
 		$.ajax({
@@ -214,4 +213,20 @@ $(document).ready(function() {
 		// $.get( "https://sgw01.cm.nl/gateway.ashx?producttoken=68a24a54-64c3-49bd-b7db-e83cf6f31a40&body=Hello+Ivana+is+taking+care+of+your+task+for+80EUR&to=0031621977967&from=ivana&reference=your_reference", function( data ) {
 		// }, "json" );
 	});
+
+	$('[data-push-notification-cancel]').click(function(e) {
+		var cancelledtitle = $(this).attr('data-push-notification-title');
+		var getCancelledUrl = 'https://sgw01.cm.nl/gateway.ashx?producttoken=68a24a54-64c3-49bd-b7db-e83cf6f31a40&body=Your+assistant+will+not+accomplish+your+task+' + cancelledtitle + '&to=0031621977967&from=ivana&reference=your_reference';
+		console.log(getCancelledUrl);
+		$.ajax({
+			type: 'GET',
+			url: getCancelledUrl,
+			success: function(data){
+				console.log(data);
+            },
+		    error: function(xhr,status,error){
+				console.log(error);
+            }
+		});
+	})
 });

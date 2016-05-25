@@ -1,0 +1,46 @@
+// *******************************************************************************
+// * GRID SYSTEM MIXIN
+// *******************************************************************************
+// This mixin is used if you choose to opt-out of the grid system in place (_grid.scss)
+// You use this by passing either a map or a number. A single number will skip the query, 
+// while a map uses breakpoints to set the width.
+// For instance:
+//
+// .myClassname {
+// 	@include column(6); //gives a width of 50% on a 12 column layout, 
+// 					//and extend %column, floating and box-sizing it
+
+// 	@include column((//extend %column therefore floating, box-sizing and 100%-ing it.
+// 		md: 6,		//from the md-breakpoint onward, the with is now 50% on a 12 column layout
+// 		xl: 12 		//from the xl-breakpoint onward, the width is once again 100%
+// 	));
+// }
+// It is also possible to nest a bp query and a column query
+// @include bp("md+") {
+//		@include column(6); //gives a width of 50% on a 12 column layout if the screen is md or higher
+// }
+
+@mixin column($numcolumns) {
+	@if map-get($compile, grid) {
+		@warn "You cannot use this mixin with the grid enabled. Use the built-in classes or disable it using the $compile map";
+	} @else {
+		@each $key, $value in $numcolumns {
+			@if $value {
+				@extend %#{$key}-#{$value};
+				// @if map-get($compile, grid) {
+				// 	@extend .#{$key}-#{$value};
+				// } @else {
+				// 	@extend %#{$key}-#{$value};
+				// }
+			} @else {
+				@extend %xs-#{$numcolumns};
+				//If there's no breakpoint-key is given, assume you want it on the first
+				// @if map-get($compile, grid) {
+				// 	@extend .xs-#{$numcolumns};
+				// } @else {
+				// 	@extend %xs-#{$numcolumns};
+				// }
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+// *******************************************************************************
+// * HOVER
+// *******************************************************************************
+@mixin hover {
+	&:hover,
+	&:focus {
+		@content;
+	}
+}
+
+@mixin clearfix {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+		width: 0;height: 0;overflow: hidden;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+//Sets font-size in rem
+@mixin font-size($desired-units) {
+	font-size: $desired-units;
+	font-size: rem($desired-units, $font-size-default);
+}

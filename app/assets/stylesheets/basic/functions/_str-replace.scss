@@ -1,0 +1,15 @@
+//This doesn't work just yet
+@function str-replace($string, $search, $replace) {
+	$length: str-length($replace);
+	$index: str-index($string, $search);
+	$slice: $string;
+
+	@while $index != 0 {
+		$slice: str-slice($slice, 0, $index - 1);
+		@debug $slice, $replace;
+		$slice: $slice + $replace;
+		$slice: $slice + str-slice($string, $index + $length);
+		$index: str-index($slice, $search);
+	}
+  	@return $slice;
+}

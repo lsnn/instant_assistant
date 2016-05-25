@@ -1,0 +1,103 @@
+/* ============================================================
+  #FIXME
+
+  if you have a .xs-pb-1 and a xl-pb-2, and the gutter changes on the xl breakpoint,
+  the xs-pb-1 gets used instead of the more important xl-pb-2 (as defined by the breakpoint)
+  The fix to this is to add the breakpoint-specific properties after the grouped selectors (:44-54)
+  This needs to be tested for output though
+
+  Every value adds another key to your selector, if $spacing consists of 2 items,
+  your classess will be xs-mb-1, xs-mb-2. The contents of these items (2 and 4 by default)
+  represent the number of gutters it will put space around
+============================================================ */
+$spacing-multiplier: (2, 4) !default;
+$spacing-properties: (
+	p: (padding-top, padding-bottom),
+	mt: margin-top,
+	mb: margin-bottom
+) !default;
+
+//By default the distance is based on your gutter width
+$spacing-distance: (
+	xs: map-get($gutters, xs),
+	sm: map-get($gutters, sm),
+	md: map-get($gutters, md),
+	lg: map-get($gutters, lg),
+	xl: map-get($gutters, xl)
+) !default;
+
+$prevGutter: nth(nth($gutters, 1), 2); // ''; //Stores previous gutter width in case there's none defined on larger breakpoints
+@each $bp, $width in $breakpoints {
+	//Adds current breakpoint to every past breakpoint
+	$keys: if(variable-exists(keys), append($keys, $bp), $bp);
+	@include bp($width) {
+		/* ============================================================
+		  This is the biggest contribution to file size.
+		  What this outputs is are three groups per breakpoint per breakpoint-ientifier
+		  For the medium-breakpoint this would be:
+		  .xs-mb-1, .sm-mb-1, .md-mb-1, .lg-mb-1, .xl-mb-1
+		  .xs-mb-2, .sm-mb-2, .md-mb-2, .lg-mb-2, .xl-mb-2
+		  .xs-mb-3, .sm-mb-3, .md-mb-3, .lg-mb-3, .xl-mb-3
+		  And that's just the margin-bottom property.
+		  Every property adds about 70 lines of code (uncompressed);
+		============================================================ */
+
+		//Here we get the current gutter width. If it's the same as the previous gutter,
+		//we only add the current bp selector. If it's not, let the previous styles stand
+		@if length($spacing-distance) == 1 {
+			//convert single-value to map set to xss
+			$spacing-distance: (
+				xs: $spacing-distance
+			);
+		}
+		$currGutter: if(map-get($spacing-distance, $bp), map-get($spacing-distance, $bp), $prevGutter);
+		//Determines if the silent classes are used or not, use the compile flag in your vars
+		$prefix: if(map-get($compile, spacing), '.', '%');
+
+		//Loops through every previous breakpoint
+		@each $shorthand, $property in ($spacing-properties) {
+			//First do the previous breakpoints
+			//Changed gutter width? Update all the selectors in previous breakpoints
+			@if($prevGutter != $currGutter) {
+				//This part is a check to see if the gutter/distance has changed for
+				//the spacing to have the possibility to be variable
+				@for $i from 1 through length($spacing-multiplier) {
+					$selector: '';
+
+					@each $key in $keys {
+						//Since we add the current breakpoint later, skip it in the selector
+						//This fixes problems with inheritence
+						@if($key != $bp) {
+							$selector: $selector + ' #{$prefix}#{$key}-#{$shorthand}-#{$i},';
+						}
+					}
+					//If you're only looping through one key, you're not going to have a selector
+					@if $selector != "" {
+						//Updates previous gutter width
+						#{$selector} {
+							@each $prop in $property {
+								#{$prop}: $currGutter * nth($spacing-multiplier, $i) * .5;
+							}
+						}
+					}
+				}
+			}
+			//Always put property of current breakpoint _after_ previous breakpoints update
+			//This fixes a problem with inheritence
+			@for $i from 1 through length($spacing-multiplier) {
+				#{$prefix}#{$bp}-#{$shorthand}-#{$i} {
+					@each $prop in $property {
+						#{$prop}: $currGutter * nth($spacing-multiplier, $i) * .5;
+					}
+				}
+
+				#{$prefix}#{$bp}-#{$shorthand}-0 {
+					@each $prop in $property {
+						#{$prop}: 0;
+					}
+				}
+			}
+		}
+		$prevGutter: $currGutter !global;
+	}
+}

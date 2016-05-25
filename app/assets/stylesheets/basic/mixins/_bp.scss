@@ -1,0 +1,83 @@
+$skipquery: if(variable-exists(breakpoints), nth(map-keys($breakpoints), 1), xs) !default;
+
+// *******************************************************************************
+// * MEDIAQUERIES
+// *******************************************************************************
+//Skips the breakpoint defined by $skipquery. That way you can start mobile-first, 
+//tablet-first or whatever else you like.
+@mixin bp($query, $skipquery: $skipquery) {
+	//Check if requested query key is the same as the skipquery variable
+	//if so, you'll probably want it in...
+	@if $skipquery == $query { $skipquery: false; }
+	@if(map-has-key($breakpoints, $skipquery) == false and $skipquery != false) {
+		@warn "You're trying to skip query " $skipquery " but it doesn't exist.";
+	}
+	//So you can pass (single) keys directly from the breakpoints variable, this 
+	//makes it only count for those specific breakpoints (min-width and max-width set)
+	//we convert these values to {number}-{number}, range so we can pass it as well
+	@if(map-has-key($breakpoints, $query)) {
+		//Get current breakpoint index
+		$nextIndex: map-key-index($breakpoints, $query);
+
+		//Get the min-width. Only if the current index is not the first (bp(xs) should return max-width only)
+		$minWidth: if($nextIndex > 1, map-get($breakpoints, $query), false);
+
+		//Retreives next key in the breakpoints variable
+		//if we've reached the end there's no max-width
+		$nextIndex: if($nextIndex < length($breakpoints), $nextIndex +1, false);
+		
+		@if $nextIndex == false {
+			//No max-width available, just use min-width
+			$query: "(min-width:#{$minWidth})";
+		} @else {
+			//If no next index, use current index
+			$nextKey: nth(map-keys($breakpoints), $nextIndex);
+			$maxWidth: map-get($breakpoints, $nextKey);
+
+			//Subtracts 1xp from max-width to avoid overlapping queries
+			@if unit($maxWidth) == 'em' {
+				$maxWidth: $maxWidth - em(1px);
+			} @else if unit($maxWidth) == 'px' {
+				$maxWidth: $maxWidth - 1px;
+			}
+			
+			//Only on the smallest breakpoint ignore min-width
+			@if $minWidth == false {
+				$query: "(max-width:#{$maxWidth})";
+			} @else {
+				$query: "(min-width:#{$minWidth}) and (max-width:#{$maxWidth})";
+			}
+		}
+	}
+	//You can also use key+ and key- to specify if you want to use max- or min-width
+	//specifically.
+	//First test if it is a string, otherwise str-index flips it's shit
+	@if(type-of($query) == 'string') {
+		//Check if there's a - at the end of the string to indicate max-width only
+		//so you can pass md+ and it will work for md and beyond
+		@if str-index($query, "-") == str-length($query) {
+			$key: str-slice($query, 0, -2);
+			$maxWidth: map-get($breakpoints, $key);
+			$query: "(max-width:#{$maxWidth})";
+		} @else if str-index($query, "+") == str-length($query) {
+			$key: str-slice($query, 0, -2);
+			$minWidth: map-get($breakpoints, $key);
+			$query: "(min-width:#{$minWidth})";
+		}
+	}
+
+	// //Or you can pass a fixed number
+	@if(type-of($query) == 'number') {
+		$query: "(min-width:#{$query})";
+	}
+	//Here we check if we need to wrap everything in a skipquery
+	// + "";
+	$sub: map-get($breakpoints, $skipquery);
+	@if $sub != null and str-index($query, $sub+"") != null {
+		@content;
+	} @else {
+		@media #{$query} {
+			@content;
+		}
+	}
+}

@@ -1,0 +1,18 @@
+@function str-split($string, $key) {
+	$index: str-index($string, $key);
+	@if not $index {
+		@return false;
+	}
+	$list: ();
+
+	$newString: $string;
+	
+	@while $index {
+		$list: append($list, str-slice($newString, 1, $index - 1));
+		//Slices the rest of the string
+		$newString: str-slice($newString, $index + 1);
+		$index: str-index($newString, $key);
+	}
+	$list: append($list, $newString);
+	@return $list;
+}

@@ -1,0 +1,117 @@
+/* ============================================================
+  UTILITY CLASSES
+  This makes it possible to write javascript hooks that uses the css queries key
+  as leading, making for more robust code (works with zooming, dpi, everything)
+============================================================ */
+body:after {
+	@if($debug-level > 0) {
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		background: cl('white');
+		color: cl('blue-darkest');
+		z-index: 99999999;
+	} @else {
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+		opacity: 0;
+		display: block;
+	}
+	speak: none;
+}
+
+// Rows and containers
+// Clears the containing floats, and adjusts margin to fit the column
+.row {
+	@extend .clearfix;
+	clear: both;
+}
+.container {
+	@extend .clearfix;
+
+	box-sizing: border-box;
+	width: $container-width;
+
+	margin: {
+		left: auto;
+		right: auto;
+	}
+}
+
+.equalheight-parent,
+.equalheight-child, {
+	display: flex;
+	flex-wrap: wrap;
+}
+.hidetext {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+.center {
+	float: none;
+	display: block;
+	margin: {
+		left: auto;
+		right: auto;
+	}
+}
+.list-reset,
+%list-reset {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+.clearfix { @include clearfix;}
+.right-text { text-align: right; }
+.center-text {text-align: center;}
+.no-padding { padding: 0 !important; }
+.no-margin { margin: 0 !important; }
+.left { float: left; }
+.right { float: right; }
+.clear-left { clear: left; }
+.clear-right { clear: right; }
+.clear-both { clear: both; }
+.circle { border-radius: 100%; }
+
+hr {
+	border: none;
+	width: 100%;
+	height: 1px;
+	background: cl('blue-lightest');
+}
+
+.is-relative,
+%is-relative {
+	position: relative;
+}
+
+.has-border-right,
+%has-border-right {
+	border-right: solid 1px cl('grey-light');
+}
+
+.has-border-left,
+%has-border-left {
+	border-left: solid 1px cl('grey-light');
+}
+
+/* ============================================================
+  SHOW/HIDE
+============================================================ */
+%hide {display: none;}
+%show {display: block;}
+@each $bp, $width in $breakpoints {
+	//.#{$bp}-show {@extend %hide;}
+	@include bp($width) {
+		.#{$bp}-show { display: block;}
+		.#{$bp}-hide { display: none;}
+	}
+}

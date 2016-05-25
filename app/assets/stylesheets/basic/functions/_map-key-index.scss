@@ -1,0 +1,11 @@
+//Returns the index at which a key is found.
+@function map-key-index($map, $key) {
+	$i: 1;
+	@each $index in map-keys($map) {
+		@if $index == $key {
+			@return $i;
+		}
+		$i: $i +1;
+	}
+	@warn No key $key found;
+}

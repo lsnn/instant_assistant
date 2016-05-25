@@ -1,0 +1,20 @@
+@function em($desired-units,$base-unit:$font-size-default) {
+	@if unitless($desired-units) {
+		@warn "Assuming #{$desired-units} to be in pixels";
+		$desired-units: $desired-units + 0px
+	}
+	
+	@if unit($desired-units) == 'em' {
+		@return ($desired-units / $base-unit) * $font-size-default;
+	}
+
+	@return ($desired-units / $base-unit)+0em;
+}
+
+@function rem($desired-units,$base-unit:$font-size-default) {
+	@if unitless($desired-units) {
+		@warn "Assuming #{$desired-units} to be in pixels";
+		$desired-units: $desired-units + 0px
+	}
+	@return ($desired-units / $base-unit)+0rem;
+}

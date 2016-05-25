@@ -1,0 +1,4 @@
+// Shorthand for retreiving colors from color map
+@function cl($key) {
+	@return nth(map-get($colors, $key), 1);
+}

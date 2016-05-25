@@ -14,8 +14,7 @@
 ActiveRecord::Schema.define(version: 20160525102049) do
 
   create_table "assistants", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "full_name"
     t.string   "email"
     t.string   "phone"
     t.datetime "created_at", null: false
@@ -28,8 +27,10 @@ ActiveRecord::Schema.define(version: 20160525102049) do
     t.string   "phone"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "available"
+    t.integer  "assistant_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|

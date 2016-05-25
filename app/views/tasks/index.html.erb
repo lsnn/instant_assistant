@@ -33,7 +33,7 @@
 
           <%= link_to "UBER", 'tasks/choose_location', class: 'button button--small' %>
 
-          <%= link_to "Cancel", { controllers: 'tasks', action: "cancel_task", id: t.id }, 'data-push-notification-cancel' => '', 'data-push-notification-title' => t.title, class: 'button button--small button--cancel' %>
+          <%= link_to "Cancel", { action: "cancel_task", id: t.id }, 'data-push-notification-cancel' => '', 'data-push-notification-title' => t.title, class: 'button button--small button--cancel' %>
         </div>
         <% end %>
       </div>

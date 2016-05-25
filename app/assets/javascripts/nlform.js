@@ -1,25 +1,15 @@
-// // This is a manifest file that'll be compiled into application.js, which will include all the files
-// // listed below.
-// //
-// // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// // or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-// //
-// // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// // compiled file.
-// //
-// // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// // about supported directives.
-// //
-// //= require jquery
-// //= require jquery_ujs
-// //= require turbolinks
-// //= require_tree .
-
-// $(document).ready(function(e) {
-
-// });
+/**
+ * nlform.js v1.0.0
+ * http://www.codrops.com
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * Copyright 2013, Codrops
+ * http://www.codrops.com
+ */
 ;( function( window ) {
-
+	
 	'use strict';
 
 	var document = window.document;
@@ -28,7 +18,7 @@
 		String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g, '');};
 	}
 
-	function NLForm( el ) {
+	function NLForm( el ) {	
 		this.el = el;
 		this.overlay = this.el.querySelector( '.nl-overlay' );
 		this.fields = [];
@@ -69,10 +59,10 @@
 	NLField.prototype = {
 		_create : function() {
 			if( this.type === 'dropdown' ) {
-				this._createDropDown();
+				this._createDropDown();	
 			}
 			else if( this.type === 'input' ) {
-				this._createInput();
+				this._createInput();	
 			}
 		},
 		_createDropDown : function() {

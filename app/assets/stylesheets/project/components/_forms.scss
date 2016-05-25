@@ -23,12 +23,9 @@ select { outline: none; }
 
 label,
 %label {
-	span {
-		display: inline-block;
-		vertical-align: middle;
-	}
+	color: cl('white');
 	@include bp('lg+') {
-		text-align: right;
+		//text-align: right;
 		line-height: em(46px, $font-size-default);
 	}
 
@@ -95,5 +92,3 @@ textarea {
 	min-height: em(100px);
 	vertical-align: top;
 }
-
-

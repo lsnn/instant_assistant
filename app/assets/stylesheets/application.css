@@ -3373,7 +3373,9 @@ strong {
 body,
 html {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  margin: 0;
+  padding: 0; }
 
 body {
   background-image: url("bg2.jpeg");
@@ -3405,6 +3407,10 @@ body {
   color: #A94442;
   padding: 0.71429em 1.42857em; }
 
+.gllpMap, #map {
+  width: 100%;
+  height: 100%; }
+
 .content:after, .mainheader:after {
   display: block;
   content: '';
@@ -3435,6 +3441,42 @@ body {
     .mainheader__nav li {
       margin: 0 0.71429em;
       float: left; }
+
+fieldset {
+  border: 0;
+  padding: 0.71429em;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #6E4985;
+  color: #f2f2f2; }
+
+.gllpLatlonPicker input:not([type=submit]):not([type=file]),
+.gllpLatlonPicker textarea {
+  border: solid 1px #CED7DF;
+  border-radius: 3px;
+  height: 3.14286em;
+  line-height: 3.14286em;
+  margin: 0;
+  box-sizing: border-box; }
+.gllpLatlonPicker input:not([type=submit]):not([type=file]):focus,
+.gllpLatlonPicker textarea:focus {
+  outline: none;
+  border-color: #6E4985;
+  background-color: #FAF6FD;
+  color: #382543; }
+.gllpLatlonPicker input:not([type=submit]):not([type=file]),
+.gllpLatlonPicker textarea {
+  width: 10.71429em;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: transparent;
+  transition: border 0.2s;
+  transition: border 0.2s; }
+
+.locationform {
+  padding: 0.71429em 0 1.42857em; }
 
 @font-face {
   font-family: 'nlicons';
@@ -3718,6 +3760,14 @@ input:focus::-ms-input-placeholder {
   padding: 0.71429em 1.42857em;
   box-sizing: border-box; }
 
+.nextactions {
+  position: absolute;
+  right: 20px;
+  top: 60px;
+  width: 100%;
+  height: 30px;
+  text-align: right; }
+
 .actions {
   position: absolute;
   right: 0;
@@ -3768,5 +3818,8 @@ input[type="submit"] {
 .button--cancel {
   background-color: #A94442;
   margin-top: 0.35714em; }
+
+.button--darken {
+  background-color: #1c1322; }
 
 /*# sourceMappingURL=application.css.map */

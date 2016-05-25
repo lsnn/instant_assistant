@@ -1,3 +1,61 @@
+fieldset {
+	border: 0;
+	padding: em(10px);
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	background-color: cl('purple');
+	color: cl('white');
+}
+
+.gllpLatlonPicker {
+	%border-base {
+		border: solid 1px cl('grey-light');
+		border-radius: $radius;
+		height: em(44px, $font-size-default);
+		line-height: em(44px, $font-size-default);
+		margin: 0;
+		box-sizing: border-box;
+	}
+
+	%focusing {
+		outline: none;
+		border-color: cl('purple');
+		background-color: cl('purple-focus');
+		color: darken(cl('purple'), 20%);
+	}
+
+	@mixin focusing($type:'input') {
+		transition: border 0.2s;
+		@if ($type != 'input') {
+			&.focusing { @extend %focusing; }
+		} @else {
+			&:focus {
+				@extend %focusing;
+			}
+		}
+	}
+
+	input:not([type=submit]):not([type=file]),
+	textarea,
+	%input-base-styling {
+		@extend %border-base;
+		width: em(150px);
+		padding: {
+			left: $gutter;
+			right: $gutter;
+		}
+		background: transparent;
+		transition: border 0.2s;
+		@include focusing;
+	}
+}
+
+.locationform {
+	padding: em(10px) 0 em(20px);
+}
+
 // ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
 //     color: cl('grey-light-font');
 // }

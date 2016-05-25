@@ -43,3 +43,7 @@ input[type="submit"] { float: right; }
 	background-color: cl('red');
 	margin-top: em(5px);
 }
+
+.button--darken {
+	background-color: darken(cl('purple'), 30%);
+}

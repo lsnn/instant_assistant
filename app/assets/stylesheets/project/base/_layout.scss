@@ -5,9 +5,6 @@ html {
 }
 
 body {
-	//background-image: url('bg2.jpeg');
-	//background-size: cover;
-	// background-color: cl('purple');
 	&:after {
 		content: '';
 		width: 100%;
@@ -20,7 +17,6 @@ body {
 
 .content {
 	@extend %clearfloat;
-	//background-color: cl('white');
 	padding-top: em(20px);
 	padding-bottom: em(20px);
 	@include bp('lg+') {

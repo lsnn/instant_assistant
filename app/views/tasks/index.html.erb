@@ -16,13 +16,32 @@
   <div class="row sm-pb-1">
     <%= f.label :first_name, :class => 'sm-12 lg-2' %>
     <div class="sm-12 lg-10">
-      <%= f.text_field :first_name , :placeholder => 'e.g. Awesome Sauce'%>
+      <%= f.text_field :full_name , :placeholder => 'e.g. Awesome Sauce', 
+      value: "#{@user.first_name} #{@user.last_name}" %>
     </div>
   </div>
   <div class="row sm-pb-1">
-    <%= f.label :last_name, :class => 'sm-12 lg-2' %>
+    <%= f.label :email, :class => 'sm-12 lg-2' %>
     <div class="sm-12 lg-10">
-      <%= f.text_field :last_name , :placeholder => 'e.g. Awesome Sauce'%>
+      <%= f.text_field :email , :placeholder => 'e.g. Awesome Sauce', value: @user.email %>
+    </div>
+  </div>
+  <div class="row sm-pb-1">
+    <%= f.label :phone, :class => 'sm-12 lg-2' %>
+    <div class="sm-12 lg-10">
+      <%= f.text_field :phone , :placeholder => 'e.g. Awesome Sauce' %>
+    </div>
+  </div>
+  <div class="row sm-pb-1">
+    <%= f.label :title, :class => 'sm-12 lg-2' %>
+    <div class="sm-12 lg-10">
+      <%= f.text_field :title , :placeholder => 'e.g. Awesome Sauce'%>
+    </div>
+  </div>
+  <div class="row sm-pb-1">
+    <%= f.label :description, :class => 'sm-12 lg-2' %>
+    <div class="sm-12 lg-10">
+      <%= f.text_area :description , :placeholder => 'e.g. Awesome Sauce'%>
     </div>
   </div>
 

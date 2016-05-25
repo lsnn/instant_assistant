@@ -28,7 +28,7 @@ gem 'uber-ruby', require: 'uber'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'byebug'
+  gem 'pry'
 
   gem 'web-console', '~> 2.0'
 

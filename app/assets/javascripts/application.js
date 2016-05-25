@@ -195,7 +195,6 @@ url: "/albums" + $(this).data('album_id') + ".json"
 
 $(document).ready(function() {
 	$('[data-push-notification]').click(function(e) {
-		e.preventDefault();
 		var amount = $(this).attr('data-push-notification');
 		console.log(amount);
 		var getUrl = 'https://sgw01.cm.nl/gateway.ashx?producttoken=68a24a54-64c3-49bd-b7db-e83cf6f31a40&body=Hello+Ivana+is+taking+care+of+your+task+for+' + amount + 'EUR&to=0031621977967&from=ivana&reference=your_reference';

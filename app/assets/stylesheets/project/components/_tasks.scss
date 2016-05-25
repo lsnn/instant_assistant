@@ -16,6 +16,14 @@
 
 	p { margin: 0; }
 
+	&.taken {
+		background-color: cl('grey-light');
+		color: cl('grey-light-font');
+		min-height: auto;
+
+		.actions { color: darken(cl('grey-light-font'), 20%); }
+	}
+
 }
 
 .actions {

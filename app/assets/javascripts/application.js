@@ -189,3 +189,11 @@
 	window.NLForm = NLForm;
 
 } )( window );
+
+$(document).ready(function() {
+	$('[data-push-notification]').click(function(e) {
+		e.preventDefault();
+		$.get( "https://sgw01.cm.nl/gateway.ashx?producttoken=68a24a54-64c3-49bd-b7db-e83cf6f31a40&body=Hello+Ivana+is+taking+care+of+your+task+for+80EUR&to=0031621977967&from=ivana&reference=your_reference", function( data ) {
+		}, "json" );
+	});
+});

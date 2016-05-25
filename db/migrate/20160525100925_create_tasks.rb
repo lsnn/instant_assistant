@@ -6,7 +6,7 @@ class CreateTasks < ActiveRecord::Migration
       t.string :phone
       t.string :title
       t.text :description
-      t.boolean :available
+      t.boolean :available, default: true
       t.integer :assistant_id
 
       t.timestamps null: false

@@ -13,13 +13,20 @@
 <main class="container sm-pt-1 sm-pb-1 md-pt-2 md-pb-2">
   <ul class="tasks">
     <% @tasks.each do |t| %>
-    <li class="task">
-      <h2><%= t.title %> in 10 minutes</h2>
+    <li class="task <%= 'taken' if t.available == false %>">
+      <h2><%= t.title %></h2>
       <p><%= t.description %></p>
       <div class="actions">
-        <p class="est">You'll earn:&euro; 50</p>
-        <%= link_to "Pick this task", {controller: 'tasks', action: 'assign_task', id: t.id},
-        class: 'button button-small' %>
+        <% if t.available == true %>
+          <p class="est">You'll earn:&euro; 50</p>
+          <%= link_to "Pick this task", {controller: 'tasks', action: 'assign_task', id: t.id},
+          class: 'button button-small' %>
+        <% else %>
+          <div class="checkblock">
+          Task was taken by <%= t.assistant.full_name.split(' ').first %><br>
+            <time>at <%= t.updated_at.strftime("%d %B %Y %H:%M") %></time>
+          </div>
+        <% end %>
       </div>
     </li>
     <% end %>

@@ -1253,7 +1253,7 @@ body {
   -webkit-font-smoothing: antialiased; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .task h2, .h5, .h6 {
   font-weight: 600;
   line-height: 1.3em;
   margin: 0 0 .5em;
@@ -1272,7 +1272,7 @@ h1, h2, h3, h4, h5, h6,
   font-size: 1.28571em;
   font-size: 1.71429em; }
 
-.h4, h4 {
+.h4, .task h2, h4 {
   font-size: 1.14286em;
   font-size: 1.42857em; }
 
@@ -1324,7 +1324,7 @@ body:after {
   content: '';
   clear: both; }
 
-.mainheader__nav ul {
+.mainheader__nav ul, .tasks {
   margin: 0;
   padding: 0;
   list-style: none; }
@@ -1453,6 +1453,10 @@ input[type="submit"] {
 
 input[type="submit"] {
   float: right; }
+
+.button--small {
+  padding: 0.71429em;
+  font-size: 0.85714em; }
 
 @font-face {
   font-family: 'nlicons';
@@ -1694,5 +1698,26 @@ input:focus::-ms-input-placeholder {
 @media screen and (max-width: 25em) {
   .nl-form {
     font-size: 2em; } }
+.task {
+  padding: 0.71429em 25% 0.71429em 1.42857em;
+  background-color: #f6f4f7;
+  position: relative;
+  min-height: 5em; }
+  .task h2 {
+    margin-bottom: 0;
+    font-family: "Merriweather", Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif; }
+  .task p {
+    margin: 0; }
+
+.actions {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  text-align: right; }
+  .actions > a, .actions > p {
+    margin-top: 0.71429em;
+    margin-right: 1.42857em; }
 
 /*# sourceMappingURL=application.css.map */

@@ -1,7 +1,28 @@
-<% @tasks.each do |t| %>
-<p>
-  Title: <%= t.title %>
-  <br>
-  Task: <%= t.description %>
-</p>
-<% end %>
+<header class="mainheader">
+  <div class="container sm-pt-1 sm-pb-1">
+    <h1 class="h3">Instant Assistant</h1>
+    <nav class="mainheader__nav">
+      <ul>
+        <li><a href="" class="active">Create a task</a></li>
+        <%= link_to "Give me a task", tasks_path %>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container sm-pt-1 sm-pb-1 md-pt-2 md-pb-2">
+  <ul class="tasks">
+    <% @tasks.each do |t| %>
+    <li class="task">
+      <h2><%= t.title %></h2>
+      <p><%= t.description %></p>
+
+      <div class="actions">
+        <p class="est">You'll earn:&euro; 50</p>
+        <a href="" class="button button--small">Pick this task</a>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</main>
+

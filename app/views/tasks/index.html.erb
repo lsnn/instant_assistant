@@ -1,4 +1,17 @@
-<%= form_for @person do |f| %>
+<header class="mainheader">
+	<div class="container">
+		<h1>Instant Assistant</h1>
+		<nav class="mainheader__nav">
+			<ul>
+				<li><a href="">Menu 1</a></li>
+				<li><a href="">Menu 2</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<main>
+<%= form_for @task do |f| %>
   <%= f.label :first_name %>:
   <%= f.text_field :first_name %><br />
 
@@ -7,3 +20,4 @@
 
   <%= f.submit %>
 <% end %>
+</main>

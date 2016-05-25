@@ -1,0 +1,99 @@
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: cl('grey-light-font');
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: cl('grey-light-font');
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  	color: cl('grey-light-font');
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: cl('grey-light-font');
+}
+
+.title,
+%title,
+label,
+%label {
+	font-weight: 600;
+	display: block;
+}
+
+select { outline: none; }
+
+label,
+%label {
+	span {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	@include bp('lg+') {
+		text-align: right;
+		line-height: em(46px, $font-size-default);
+	}
+
+	&.error {
+		line-height: 1;
+		color: cl('red-error');
+		padding-top: em(10px);
+	}
+}
+
+%border-base {
+	border: solid 1px cl('grey-light');
+	border-radius: $radius;
+	height: em(46px, $font-size-default);
+	line-height: em(46px, $font-size-default);
+	margin: 0;
+	box-sizing: border-box;
+}
+
+%focusing {
+	outline: none;
+	border-color: cl('purple');
+	background-color: cl('purple-focus');
+}
+
+@mixin focusing($type:'input') {
+	transition: border 0.2s;
+	@if ($type != 'input') {
+		&.focusing { @extend %focusing; }
+	} @else {
+		&:focus {
+			@extend %focusing;
+		}
+	}
+}
+
+input:not([type=submit]):not([type=file]),
+textarea,
+%input-base-styling {
+	@extend %border-base;
+	width: 100%;
+	padding: {
+		left: $gutter;
+		right: $gutter;
+	}
+	background: transparent;
+	transition: border 0.2s;
+	@include focusing;
+
+	&:disabled {
+		background: cl('purple-lightest');
+		color: cl('purple-light');
+	}
+
+	&.error {
+		background: cl('red-lightest');
+		color: cl('red-error');
+		border-color: cl('red-error');
+	}
+}
+
+textarea {
+	resize: none;
+	min-height: em(100px);
+	vertical-align: top;
+}
+
+

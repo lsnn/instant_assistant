@@ -79,7 +79,19 @@ $spacing-distance: (
 //generates a class called bg-grey_light with a bg color
 $colors: (
 	'purple': #6E4985,
+	'purple-focus': #FAF6FD,
+	'purple-lightest': #E6D3F4,
+	'purple-light': #E2DDE5,
+
+
 	'black': #333,
 	'white': #f2f2f2,
-	'grey-medium': #e2e2e2
+
+	'grey-medium': #e2e2e2,
+	'grey-light': #CED7DF,
+	'grey-light-font': #A7B5C2,
+
+	'red': #A94442,
+	'red-lightest': #FFEFF1,
+	'red-error': #D0021B
 );

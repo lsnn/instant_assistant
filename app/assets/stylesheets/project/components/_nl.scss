@@ -15,6 +15,8 @@
 	margin: 0.3em auto 0 auto;
 	font-size: 4em;
 	line-height: 1.5;
+	color: cl('white');
+	font-family: $font-montserrat;
 }
 
 .new_task ul {
@@ -61,16 +63,16 @@
 .new_task select  {
 	line-height: inherit;
 	display: inline-block;
-	color: #b14943;
+	color: #EBDCF5;
 	cursor: pointer;
-	border-bottom: 1px dashed #b14943;
+	border-bottom: 1px dashed #EBDCF5;
 }
 
 /* drop-down list / text element */
 .nl-field ul {
 	position: absolute;
 	visibility: hidden;
-	background: #76C3BD;
+	background: cl('purple');
 	left: -0.5em;
 	top: 50%;
 	font-size: 80%;
@@ -147,6 +149,7 @@
 	padding: 0.2em 2em 0.2em 0.5em;
 	border-bottom: none;
 	color: #fff;
+	box-sizing: border-box;
 }
 
 .new_task .nl-field-go {
@@ -222,7 +225,7 @@ input:focus::-ms-input-placeholder {
 	text-transform: uppercase;
 	cursor: pointer;
 	position: relative;
-	background: #76C3BD;
+	background: cl('purple');
 	color: #fff;
 	padding: 0 1em 0 0;
 	font-size: 40%;
@@ -236,16 +239,16 @@ input:focus::-ms-input-placeholder {
 	float: left;
 	padding: 0 0.7em;
 	margin: 0 0.8em 0 0;
-	background: #69B1A9;
+	background: lighten(cl('purple'), 10%);
 }
 
 .no-touch .new_task .nl-submit:hover,
 .no-touch .new_task .nl-submit:active {
-	background: #69B1A9;
+	background: cl('purple');
 }
 
 .no-touch .new_task .nl-submit:hover:before {
-	background: #58a199;
+	background: cl('purple');
 }
 
 /* overlay becomes visible when a field is opened */

@@ -3375,13 +3375,16 @@ html {
   width: 100%;
   height: 100%; }
 
-body:after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  display: block;
-  background-color: rgba(255, 255, 255, 0.2);
-  z-index: -1; }
+body {
+  background-image: url("bg2.jpeg");
+  background-size: cover; }
+  body:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1; }
 
 .content {
   padding-top: 1.42857em;
@@ -3475,7 +3478,9 @@ input[type="submit"] {
   width: 100%;
   margin: 0.3em auto 0 auto;
   font-size: 4em;
-  line-height: 1.5; }
+  line-height: 1.5;
+  color: #f2f2f2;
+  font-family: "Montserrat", Helvetica, sans-serif; }
 
 .new_task ul {
   list-style: none;
@@ -3516,15 +3521,15 @@ input[type="submit"] {
 .new_task select {
   line-height: inherit;
   display: inline-block;
-  color: #b14943;
+  color: #EBDCF5;
   cursor: pointer;
-  border-bottom: 1px dashed #b14943; }
+  border-bottom: 1px dashed #EBDCF5; }
 
 /* drop-down list / text element */
 .nl-field ul {
   position: absolute;
   visibility: hidden;
-  background: #76C3BD;
+  background: #6E4985;
   left: -0.5em;
   top: 50%;
   font-size: 80%;
@@ -3590,7 +3595,8 @@ input[type="submit"] {
   width: 100%;
   padding: 0.2em 2em 0.2em 0.5em;
   border-bottom: none;
-  color: #fff; }
+  color: #fff;
+  box-sizing: border-box; }
 
 .new_task .nl-field-go {
   position: absolute;
@@ -3654,7 +3660,7 @@ input:focus::-ms-input-placeholder {
   text-transform: uppercase;
   cursor: pointer;
   position: relative;
-  background: #76C3BD;
+  background: #6E4985;
   color: #fff;
   padding: 0 1em 0 0;
   font-size: 40%;
@@ -3667,14 +3673,14 @@ input:focus::-ms-input-placeholder {
   float: left;
   padding: 0 0.7em;
   margin: 0 0.8em 0 0;
-  background: #69B1A9; }
+  background: #895ca5; }
 
 .no-touch .new_task .nl-submit:hover,
 .no-touch .new_task .nl-submit:active {
-  background: #69B1A9; }
+  background: #6E4985; }
 
 .no-touch .new_task .nl-submit:hover:before {
-  background: #58a199; }
+  background: #6E4985; }
 
 /* overlay becomes visible when a field is opened */
 .nl-overlay {

@@ -18,7 +18,8 @@
       <p><%= t.description %></p>
       <div class="actions">
         <p class="est">You'll earn:&euro; 50</p>
-        <a href="" class="button button--small">Pick this task</a>
+        <%= link_to "Pick this task", {controller: 'tasks', action: 'assign_task', id: t.id},
+        class: 'button button-small' %>
       </div>
     </li>
     <% end %>

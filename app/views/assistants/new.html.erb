@@ -1,21 +1,21 @@
 <%= form_for @assistant do |f| %>
-  <div class="row sm-pb-1">
-    <%= f.label :full_name, :class => 'sm-12 lg-2' %>
-    <div class="sm-12 lg-10">
-      <%= f.text_field :full_name , :placeholder => 'e.g. Awesome Sauce'  %>
-    </div>
+<div class="row sm-pb-1">
+  <%= f.label :full_name, :class => 'sm-12 lg-2' %>
+  <div class="sm-12 lg-10">
+    <%= f.text_field :full_name , :placeholder => 'e.g. Awesome Sauce'  %>
   </div>
-  <div class="row sm-pb-1">
-    <%= f.label :email, :class => 'sm-12 lg-2' %>
-    <div class="sm-12 lg-10">
-      <%= f.text_field :email , :placeholder => 'e.g. Awesome Sauce' %>
-    </div>
+</div>
+<div class="row sm-pb-1">
+  <%= f.label :email, :class => 'sm-12 lg-2' %>
+  <div class="sm-12 lg-10">
+    <%= f.text_field :email , :placeholder => 'e.g. Awesome Sauce' %>
   </div>
-  <div class="row sm-pb-1">
-    <%= f.label :phone, :class => 'sm-12 lg-2' %>
-    <div class="sm-12 lg-10">
-      <%= f.text_field :phone , :placeholder => 'e.g. Awesome Sauce' %>
-    </div>
+</div>
+<div class="row sm-pb-1">
+  <%= f.label :phone, :class => 'sm-12 lg-2' %>
+  <div class="sm-12 lg-10">
+    <%= f.text_field :phone , :placeholder => 'e.g. Awesome Sauce' %>
   </div>
-  <%= f.submit %>
-  <% end %>
+</div>
+<%= f.submit %>
+<% end %>

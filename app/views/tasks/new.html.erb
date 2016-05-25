@@ -1,0 +1,55 @@
+ <header class="mainheader">
+  <div class="container sm-pt-1 sm-pb-1">
+    <h1 class="h3">Instant Assistant</h1>
+    <nav class="mainheader__nav">
+      <ul>
+        <li><a href="" class="active">Create a task</a></li>
+        <%= link_to "Give me a task", tasks_path %>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<% flash.each do |name, msg| -%>
+<%= content_tag :div, msg, class: name %>
+<% end -%>
+
+<main class="container sm-pt-1 sm-pb-1 lg-pt-2 lg-pb-2">
+  <h2>Welcome <%= "#{@user.first_name} #{@user.last_name}" %></h2>
+
+  <%= form_for @task do |f| %>
+  <div class="row sm-pb-1">
+    <%= f.label :full_name, :class => 'sm-12 lg-2' %>
+    <div class="sm-12 lg-10">
+      <%= f.text_field :full_name , :value => "#{@user.first_name} #{@user.last_name}" %>
+    </div>
+  </div>
+  <div class="row sm-pb-1">
+    <%= f.label :email, :class => 'sm-12 lg-2' %>
+    <div class="sm-12 lg-10">
+      <%= f.text_field :email , :placeholder => 'e.g. Awesome Sauce', value: @user.email %>
+    </div>
+  </div>
+  <div class="row sm-pb-1">
+    <%= f.label :phone, :class => 'sm-12 lg-2' %>
+    <div class="sm-12 lg-10">
+      <%= f.text_field :phone , :placeholder => 'e.g. Awesome Sauce' %>
+    </div>
+  </div>
+  <div class="row sm-pb-1">
+    <%= f.label :title, :class => 'sm-12 lg-2' %>
+    <div class="sm-12 lg-10">
+      <%= f.text_field :title , :placeholder => 'e.g. Awesome Sauce'%>
+    </div>
+  </div>
+  <div class="row sm-pb-1">
+    <%= f.label :description, :class => 'sm-12 lg-2' %>
+    <div class="sm-12 lg-10">
+      <%= f.text_area :description , :placeholder => 'e.g. Awesome Sauce'%>
+    </div>
+  </div>
+
+  <%= f.submit %>
+  <% end %>
+
+</main>

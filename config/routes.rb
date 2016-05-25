@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'tasks#index'
+  root 'tasks#new'
 
   resources :tasks
+  resources :assistants
 
 end

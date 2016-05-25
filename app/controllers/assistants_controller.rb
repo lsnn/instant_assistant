@@ -1,7 +1,7 @@
 class AssistantsController < ApplicationController
 
   def index
-    @assistants = Assistant.all
+    @tasks = Tasks.all
   end
 
   def show

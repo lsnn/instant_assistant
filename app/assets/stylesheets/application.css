@@ -1292,7 +1292,7 @@ strong {
   content: '';
   clear: both; }
 
-.mainheader____nav {
+.mainheader__nav ul {
   margin: 0;
   padding: 0;
   list-style: none; }
@@ -1301,6 +1301,12 @@ strong {
   background-color: #6E4985; }
   .mainheader h1, .mainheader a {
     color: #f2f2f2; }
+  .mainheader__nav {
+    display: inline-block;
+    float: right; }
+    .mainheader__nav li {
+      margin: 0 0.71429em;
+      float: left; }
 
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
@@ -1317,6 +1323,9 @@ strong {
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #A7B5C2; }
+
+.new_task {
+  max-width: 1000px; }
 
 .title,
 label {
@@ -1375,5 +1384,33 @@ textarea {
   resize: none;
   min-height: 7.14286em;
   vertical-align: top; }
+
+button {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  line-height: 1; }
+
+.button,
+input[type="submit"] {
+  background: #6E4985;
+  display: inline-block;
+  border-radius: 3px;
+  border: 0;
+  color: #f2f2f2;
+  line-height: 1;
+  padding: 1.07143em;
+  transition: background 0.2s; }
+  .button em,
+  input[type="submit"] em {
+    font-style: normal;
+    font-weight: 800; }
+  .button:hover,
+  input[type="submit"]:hover {
+    color: #f2f2f2;
+    background: #533764; }
+
+input[type="submit"] {
+  float: right; }
 
 /*# sourceMappingURL=application.css.map */

@@ -1,0 +1,31 @@
+button {
+	border: none;
+	box-shadow: none;
+	padding: 0;
+	line-height: 1;
+}
+
+.button,
+%button,
+input[type="submit"] {
+	background: cl('purple');
+	display: inline-block;
+	border-radius: $radius;
+	border: 0;
+	color: cl('white');
+	line-height: 1;
+	padding: em(15px);
+	transition: background 0.2s;
+
+	em {
+		font-style: normal;
+		font-weight: 800;
+	}
+
+	&:hover {
+		color: cl('white');
+		background: darken(cl('purple'), 10%);;
+	}
+}
+
+input[type="submit"] { float: right; }

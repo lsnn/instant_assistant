@@ -16,7 +16,16 @@
 	background-color: cl('purple');
 	@extend %clearfloat;
 	h1, a { color: cl('white'); }
-	&____nav {
-		@extend %clearlist;
+
+	&__nav {
+		display: inline-block;
+		float: right;
+		ul {
+			@extend %clearlist;
+		}
+		li {
+			margin: 0 em(10px);
+			float: left;
+		}
 	}
 }

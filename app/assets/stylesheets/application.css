@@ -3400,6 +3400,11 @@ body {
   .content h1 {
     color: #f2f2f2; }
 
+.danger {
+  background-color: #FFEFF1;
+  color: #A94442;
+  padding: 0.71429em 1.42857em; }
+
 .content:after, .mainheader:after {
   display: block;
   content: '';

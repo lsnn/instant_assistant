@@ -33,3 +33,9 @@ body {
 	}
 	h1 { color: cl('white'); }
 }
+
+.danger {
+	background-color: cl('red-lightest');
+	color: cl('red');
+	padding: em(10px) em(20px);
+}

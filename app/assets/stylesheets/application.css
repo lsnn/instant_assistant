@@ -3438,38 +3438,36 @@ body {
   font-weight: normal;
   font-style: normal; }
 /* general style for the form */
-.new_task {
+.new_task,
+.new_assistant {
   width: 100%;
   margin: 0.3em auto 0 auto;
   font-size: 4em;
   line-height: 1.5;
   color: #f2f2f2;
   font-family: "Montserrat", Helvetica, sans-serif; }
-
-.new_task ul {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-
-/* normalize the input elements, make them look like everything else */
-.new_task input,
-.new_task select,
-.new_task button {
-  border: none;
-  background: transparent;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none; }
-
-.new_task input:focus {
-  outline: none; }
+  .new_task ul,
+  .new_assistant ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .new_task input, .new_task select, .new_task button,
+  .new_assistant input,
+  .new_assistant select,
+  .new_assistant button {
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none; }
 
 /* custom field (drop-down, text element) styling  */
 .nl-field {
@@ -3482,7 +3480,9 @@ body {
 /* the toggle is the visible part in the form */
 .nl-field-toggle,
 .new_task input,
-.new_task select {
+.new_task select,
+.new_assistant input,
+.new_assistant select {
   line-height: inherit;
   display: inline-block;
   color: #EBDCF5;
@@ -3562,7 +3562,8 @@ body {
   color: #fff;
   box-sizing: border-box; }
 
-.new_task .nl-field-go {
+.new_task .nl-field-go,
+.new_assistant .nl-field-go {
   position: absolute;
   right: 0;
   top: 0;
@@ -3621,7 +3622,8 @@ input:focus::-ms-input-placeholder {
 .nl-submit-wrap {
   margin-top: 0.4em; }
 
-.new_task .nl-submit {
+.new_task .nl-submit,
+.new_assistant .nl-submit {
   line-height: 3;
   text-transform: uppercase;
   cursor: pointer;
@@ -3642,10 +3644,13 @@ input:focus::-ms-input-placeholder {
   background: #895ca5; }
 
 .no-touch .new_task .nl-submit:hover,
-.no-touch .new_task .nl-submit:active {
+.no-touch .new_task .nl-submit:active,
+.no-touch .new_assistant .nl-submit:hover,
+.no-touch .new_assistant .nl-submit:active {
   background: #6E4985; }
 
-.no-touch .new_task .nl-submit:hover:before {
+.no-touch .new_task .nl-submit:hover:before,
+.no-touch .new_assistant .nl-submit:hover:before {
   background: #6E4985; }
 
 /* overlay becomes visible when a field is opened */
@@ -3671,10 +3676,12 @@ input:focus::-ms-input-placeholder {
   transition-delay: 0s; }
 
 @media screen and (max-width: 45em) {
-  .new_task {
+  .new_task,
+  .new_assistant {
     font-size: 3em; } }
 @media screen and (max-width: 25em) {
-  .new_task {
+  .new_task,
+  .new_assistant {
     font-size: 2em; } }
 .task {
   padding: 0.71429em 25% 0.71429em 1.42857em;
@@ -3695,7 +3702,7 @@ input:focus::-ms-input-placeholder {
       background-color: #9BAAB8;
       color: #CED7DF; }
   .task.taken {
-    min-height: auto;
+    min-height: 6.07143em;
     background-color: #CAE8CA;
     color: #3F9940; }
 
@@ -3752,5 +3759,9 @@ input[type="submit"] {
 .button--small {
   padding: 0.71429em;
   font-size: 0.85714em; }
+
+.button--cancel {
+  background-color: #A94442;
+  margin-top: 0.35714em; }
 
 /*# sourceMappingURL=application.css.map */

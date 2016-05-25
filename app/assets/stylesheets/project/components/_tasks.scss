@@ -27,7 +27,7 @@
 	}
 
 	&.taken {
-		min-height: auto;
+		min-height: em(85px);
 		background-color: cl('green-light');
 		color: cl('green-dark');
 	}

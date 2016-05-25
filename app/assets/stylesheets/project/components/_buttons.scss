@@ -38,3 +38,8 @@ input[type="submit"] { float: right; }
 	padding: em(10px);
 	font-size: em(12px);
 }
+
+.button--cancel {
+	background-color: cl('red');
+	margin-top: em(5px);
+}

@@ -25,13 +25,14 @@
       <div class="actions">
         <% if t.available == true %>
           <p class="est">You'll earn:&euro; <%= t.money %></p>
-          <%= link_to "Pick this task", {controller: 'tasks', action: 'assign_task', id: t.id}, class: 'button button--small', 'data-push-notification' => t.money %>
+          <%= link_to "Pick this task", {controller: 'tasks', action: 'assign_task', id: t.id}, class: 'button button--small', 'data-push-notification' => t.money, 'data-push-notification-title' => t.title %>
         <% else %>
         <div class="checkblock">
-          Task was taken by <%= t.assistant.full_name.split(' ').first %><br>
-          <time>at <%= t.updated_at.strftime("%d %B %Y %H:%M") %></time>
+          <%= t.assistant.full_name.split(' ').first %> is taking care of it <br>at
+          <time><%= t.updated_at.strftime("%d %B %Y %H:%M") %></time>
+
           <%= link_to "Cancel", { controllers: 'tasks', action: "cancel_task", id: t.id },
-          class: 'button button--small' %>
+          class: 'button button--small button--cancel' %>
         </div>
         <% end %>
       </div>

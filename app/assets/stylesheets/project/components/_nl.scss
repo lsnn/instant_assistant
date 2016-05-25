@@ -10,41 +10,36 @@
 }
 
 /* general style for the form */
-.new_task {
+.new_task,
+.new_assistant {
 	width: 100%;
 	margin: 0.3em auto 0 auto;
 	font-size: 4em;
 	line-height: 1.5;
 	color: cl('white');
 	font-family: $font-montserrat;
-}
 
-.new_task ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 
-/* normalize the input elements, make them look like everything else */
-.new_task input,
-.new_task select,
-.new_task button {
-	border: none;
-	background: transparent;
-	font-family: inherit;
-	font-size: inherit;
-	color: inherit;
-	font-weight: inherit;
-	line-height: inherit;
-	display: inline-block;
-	padding: 0;
-	margin: 0;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-}
-
-.new_task input:focus {
-	outline: none;
+	input, select, button {
+		border: none;
+		background: transparent;
+		font-family: inherit;
+		font-size: inherit;
+		color: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		outline: none;
+	}
 }
 
 /* custom field (drop-down, text element) styling  */
@@ -60,7 +55,9 @@
 /* the toggle is the visible part in the form */
 .nl-field-toggle,
 .new_task input,
-.new_task select  {
+.new_task select,
+.new_assistant input,
+.new_assistant select {
 	line-height: inherit;
 	display: inline-block;
 	color: #EBDCF5;
@@ -152,7 +149,8 @@
 	box-sizing: border-box;
 }
 
-.new_task .nl-field-go {
+.new_task .nl-field-go,
+.new_assistant .nl-field-go {
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -222,7 +220,8 @@ input:focus::-ms-input-placeholder {
 	margin-top: 0.4em;
 }
 
-.new_task .nl-submit {
+.new_task .nl-submit,
+.new_assistant .nl-submit {
 	line-height: 3;
 	text-transform: uppercase;
 	cursor: pointer;
@@ -245,11 +244,14 @@ input:focus::-ms-input-placeholder {
 }
 
 .no-touch .new_task .nl-submit:hover,
-.no-touch .new_task .nl-submit:active {
+.no-touch .new_task .nl-submit:active,
+.no-touch .new_assistant .nl-submit:hover,
+.no-touch .new_assistant .nl-submit:active {
 	background: cl('purple');
 }
 
-.no-touch .new_task .nl-submit:hover:before {
+.no-touch .new_task .nl-submit:hover:before,
+.no-touch .new_assistant .nl-submit:hover:before{
 	background: cl('purple');
 }
 
@@ -278,13 +280,15 @@ input:focus::-ms-input-placeholder {
 }
 
 @media screen and (max-width: 45em) {
-	.new_task {
+	.new_task,
+	.new_assistant {
 		font-size: 3em;
 	}
 }
 
 @media screen and (max-width: 25em) {
-	.new_task {
+	.new_task,
+	.new_assistant {
 		font-size: 2em;
 	}
 }

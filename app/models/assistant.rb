@@ -1,5 +1,7 @@
 class Assistant < ActiveRecord::Base
 
-    validates :full_name, :email, :phone, presence: true
+  has_many :tasks
+
+  validates :full_name, :email, :phone, presence: true
 
 end

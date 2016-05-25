@@ -29,9 +29,5 @@ module InstantAssistant
       config.client_secret = "bQeKc3eGJvROos8N6i6Ay4BOm3FisjzsZOI1r9ec"
     end
 
-    # client = Uber::Client.new do |config|
-    #   config.server_token  = "uHf5yHFbjoE11qRnJW8pN8S98EX79hUc_xXPS4iW"
-    # end
-    # client.products(latitude: 52.370216, longitude: 4.895168)
   end
 end

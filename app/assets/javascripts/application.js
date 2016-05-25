@@ -46,8 +46,9 @@
 				self.fldOpen++;
 				self.fields.push( new NLField( self, el, 'input', self.fldOpen ) );
 			} );
-			this.overlay.addEventListener( 'click', function(ev) { self._closeFlds(); } );
-			this.overlay.addEventListener( 'touchstart', function(ev) { self._closeFlds(); } );
+			console.log(this.overlay);
+			//this.overlay.addEventListener( 'click', function(ev) { self._closeFlds(); } );
+			//this.overlay.addEventListener( 'touchstart', function(ev) { self._closeFlds(); } );
 		},
 		_closeFlds : function() {
 			if( this.fldOpen !== -1 ) {
@@ -190,10 +191,27 @@
 
 } )( window );
 
+url: "/albums" + $(this).data('album_id') + ".json"
+
 $(document).ready(function() {
 	$('[data-push-notification]').click(function(e) {
 		e.preventDefault();
-		$.get( "https://sgw01.cm.nl/gateway.ashx?producttoken=68a24a54-64c3-49bd-b7db-e83cf6f31a40&body=Hello+Ivana+is+taking+care+of+your+task+for+80EUR&to=0031621977967&from=ivana&reference=your_reference", function( data ) {
-		}, "json" );
+		var amount = $(this).attr('data-push-notification');
+		console.log(amount);
+		var getUrl = 'https://sgw01.cm.nl/gateway.ashx?producttoken=68a24a54-64c3-49bd-b7db-e83cf6f31a40&body=Hello+Ivana+is+taking+care+of+your+task+for+' + amount + 'EUR&to=0031621977967&from=ivana&reference=your_reference';
+
+		$.ajax({
+			type: 'GET',
+			url: getUrl,
+			success: function(data){
+				console.log(data);
+            },
+		    error: function(xhr,status,error){
+				console.log(error);
+            }
+		});
+
+		// $.get( "https://sgw01.cm.nl/gateway.ashx?producttoken=68a24a54-64c3-49bd-b7db-e83cf6f31a40&body=Hello+Ivana+is+taking+care+of+your+task+for+80EUR&to=0031621977967&from=ivana&reference=your_reference", function( data ) {
+		// }, "json" );
 	});
 });

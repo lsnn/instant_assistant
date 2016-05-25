@@ -3,7 +3,8 @@
     <h1 class="h3">Instant Assistant</h1>
     <nav class="mainheader__nav">
       <ul>
-        <li><a href="" class="active">Create a task</a></li>
+        <li><%= link_to "Create a task", root_path %></li>
+
         <li><%= link_to "Show me tasks", tasks_path, :class => 'active' %></li>
         <li><%= link_to "Assistant", new_assistant_path %></li>
       </ul>
@@ -23,9 +24,8 @@
       <p><%= t.description %></p>
       <div class="actions">
         <% if t.available == true %>
-        <p class="est">You'll earn:&euro; 50</p>
-        <%= link_to "Pick this task", {controller: 'tasks', action: 'assign_task', id: t.id},
-        class: 'button button--small' %>
+          <p class="est">You'll earn:&euro; <%= t.money %></p>
+          <%= link_to "Pick this task", {controller: 'tasks', action: 'assign_task', id: t.id}, class: 'button button--small', 'data-push-notification' => t.money %>
         <% else %>
         <div class="checkblock">
           Task was taken by <%= t.assistant.full_name.split(' ').first %><br>

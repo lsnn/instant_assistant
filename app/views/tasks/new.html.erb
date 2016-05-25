@@ -19,6 +19,9 @@
     with description of
 
     <%= f.text_field :description , :placeholder => 'cleaning my mess', 'data-subline' => 'For example: cleaning my mess' %>
+
+    for €<%= f.number_field :money , :placeholder => '25', 'data-subline' => 'e.g. €50' %>
+
     <div class="nl-submit-wrap">
 
       <%= button_to @task, :class => 'nl-submit' do %>

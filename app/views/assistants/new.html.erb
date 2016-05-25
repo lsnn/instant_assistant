@@ -1,21 +1,36 @@
-<%= form_for @assistant do |f| %>
-<div class="row sm-pb-1">
-  <%= f.label :full_name, :class => 'sm-12 lg-2' %>
-  <div class="sm-12 lg-10">
-    <%= f.text_field :full_name , :placeholder => 'e.g. Awesome Sauce'  %>
+ <header class="mainheader">
+  <div class="container sm-pt-1 sm-pb-1">
+    <h1 class="h3">Instant Assistant</h1>
+    <nav class="mainheader__nav">
+      <ul>
+        <li><%= link_to "Create a task", root_path %></li>
+        <li><%= link_to "Show me tasks", tasks_path %></li>
+        <li><%= link_to "Assistant", new_assistant_path, class: 'active' %></li>
+      </ul>
+    </nav>
   </div>
-</div>
-<div class="row sm-pb-1">
-  <%= f.label :email, :class => 'sm-12 lg-2' %>
-  <div class="sm-12 lg-10">
-    <%= f.text_field :email , :placeholder => 'e.g. Awesome Sauce' %>
+</header>
+
+<main class="container sm-pt-1 sm-pb-1 lg-pt-2 lg-pb-2">
+  <%= form_for @assistant do |f| %>
+  <div class="row sm-pb-1">
+    <%= f.label :full_name, :class => 'sm-12 lg-2' %>
+    <div class="sm-12 lg-10">
+      <%= f.text_field :full_name , :placeholder => 'e.g. Awesome Sauce'  %>
+    </div>
   </div>
-</div>
-<div class="row sm-pb-1">
-  <%= f.label :phone, :class => 'sm-12 lg-2' %>
-  <div class="sm-12 lg-10">
-    <%= f.text_field :phone , :placeholder => 'e.g. Awesome Sauce' %>
+  <div class="row sm-pb-1">
+    <%= f.label :email, :class => 'sm-12 lg-2' %>
+    <div class="sm-12 lg-10">
+      <%= f.text_field :email , :placeholder => 'e.g. Awesome Sauce' %>
+    </div>
   </div>
-</div>
-<%= f.submit %>
-<% end %>
+  <div class="row sm-pb-1">
+    <%= f.label :phone, :class => 'sm-12 lg-2' %>
+    <div class="sm-12 lg-10">
+      <%= f.text_field :phone , :placeholder => 'e.g. Awesome Sauce' %>
+    </div>
+  </div>
+  <%= f.submit %>
+  <% end %>
+</main>

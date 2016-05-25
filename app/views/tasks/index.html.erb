@@ -1,17 +1,18 @@
  <header class="mainheader">
-	<div class="container">
-		<h1>Instant Assistant</h1>
-		<nav class="mainheader__nav">
-			<ul>
-				<li><a href="">Menu 1</a></li>
-				<li><a href="">Menu 2</a></li>
-			</ul>
-		</nav>
-	</div>
+   <div class="container">
+    <h1>Instant Assistant</h1>
+    <nav class="mainheader__nav">
+     <ul>
+      <li><a href="">Menu 1</a></li>
+      <li><a href="">Menu 2</a></li>
+    </ul>
+  </nav>
+  <h2>Welcome <%= "#{@user.first_name} #{@user.last_name}" %></h2>
+</div>
 </header>
 
 <main>
-<%= form_for @task do |f| %>
+  <%= form_for @task do |f| %>
   <%= f.label :first_name %>:
   <%= f.text_field :first_name %><br />
 
@@ -19,5 +20,5 @@
   <%= f.text_field :last_name %><br />
 
   <%= f.submit %>
-<% end %>
+  <% end %>
 </main>

@@ -15,12 +15,25 @@
 .mainheader {
 	background-color: cl('purple');
 	@extend %clearfloat;
-	h1, a { color: cl('white'); }
 
+	.container {
+		line-height: em(30px);
+	}
+
+	h1 { color: cl('white'); }
+	a {
+		color: lighten(cl('purple'), 30%);
+		&:hover,
+		&.active { color: cl('white'); }
+	}
+	h1 {
+		float: left; margin: 0;
+	}
 
 	&__nav {
 		display: inline-block;
 		float: right;
+		vertical-align: middle;
 		ul {
 			@extend %clearlist;
 		}

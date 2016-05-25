@@ -16,6 +16,9 @@ input[type="submit"] {
 	line-height: 1;
 	padding: em(15px);
 	transition: background 0.2s;
+	font-family: $font-montserrat;
+	font-weight: 700;
+	text-transform: uppercase;
 
 	em {
 		font-style: normal;
@@ -24,7 +27,7 @@ input[type="submit"] {
 
 	&:hover {
 		color: cl('white');
-		background: darken(cl('purple'), 10%);;
+		background: darken(cl('purple'), 20%);;
 	}
 }
 

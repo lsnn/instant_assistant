@@ -1,9 +1,9 @@
  <header class="mainheader">
-  <div class="container">
-    <h1>Instant Assistant</h1>
+  <div class="container sm-pt-1 sm-pb-1">
+    <h1 class="h3">Instant Assistant</h1>
     <nav class="mainheader__nav">
       <ul>
-        <li><a href="">Menu 1</a></li>
+        <li><a href="" class="active">Create a task</a></li>
         <li><a href="">Menu 2</a></li>
       </ul>
     </nav>
@@ -12,12 +12,12 @@
 
 <main class="container sm-pt-1 sm-pb-1 lg-pt-2 lg-pb-2">
 <h2>Welcome <%= "#{@user.first_name} #{@user.last_name}" %></h2>
+
 <%= form_for @task do |f| %>
   <div class="row sm-pb-1">
     <%= f.label :first_name, :class => 'sm-12 lg-2' %>
     <div class="sm-12 lg-10">
-      <%= f.text_field :full_name , :placeholder => 'e.g. Awesome Sauce', 
-      value: "#{@user.first_name} #{@user.last_name}" %>
+      <%= f.text_field :first_name , :value => @user.first_name %>
     </div>
   </div>
   <div class="row sm-pb-1">
@@ -46,5 +46,6 @@
   </div>
 
   <%= f.submit %>
-  <% end %>
+<% end %>
+
 </main>

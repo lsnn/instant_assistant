@@ -23,14 +23,16 @@
       <p><%= t.description %></p>
       <div class="actions">
         <% if t.available == true %>
-          <p class="est">You'll earn:&euro; 50</p>
-          <%= link_to "Pick this task", {controller: 'tasks', action: 'assign_task', id: t.id},
-          class: 'button button--small' %>
+        <p class="est">You'll earn:&euro; 50</p>
+        <%= link_to "Pick this task", {controller: 'tasks', action: 'assign_task', id: t.id},
+        class: 'button button--small' %>
         <% else %>
-          <div class="checkblock">
+        <div class="checkblock">
           Task was taken by <%= t.assistant.full_name.split(' ').first %><br>
-            <time>at <%= t.updated_at.strftime("%d %B %Y %H:%M") %></time>
-          </div>
+          <time>at <%= t.updated_at.strftime("%d %B %Y %H:%M") %></time>
+          <%= link_to "Cancel", { controllers: 'tasks', action: "cancel_task", id: t.id },
+          class: 'button button--small' %>
+        </div>
         <% end %>
       </div>
     </li>

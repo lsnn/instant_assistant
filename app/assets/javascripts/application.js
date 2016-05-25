@@ -32,6 +32,8 @@
 		this.fldOpen = -1;
 		this._init();
 	}
+	var inputs = $('input, textarea, select')
+                .not(':input[type=button], :input[type=submit], :input[type=reset]');
 
 	NLForm.prototype = {
 		_init : function() {

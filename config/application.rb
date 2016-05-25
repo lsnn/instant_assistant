@@ -22,5 +22,12 @@ module InstantAssistant
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    client = Uber::Client.new do |config|
+      config.server_token  = "YOUR_SERVER_TOKEN"
+      config.client_id     = "YOUR_CLIENT_ID"
+      config.client_secret = "YOUR_CLIENT_SECRET"
+    end
+
   end
 end

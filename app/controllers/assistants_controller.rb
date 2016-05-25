@@ -1,9 +1,5 @@
 class AssistantsController < ApplicationController
 
-  def index
-    @tasks = Tasks.all
-  end
-
   def show
     @assistant = Assistant.find_by(assistant_params)
   end
@@ -15,17 +11,18 @@ class AssistantsController < ApplicationController
   def create
     @assistant = Assistant.new(assistant_params)
     if @assistant.save
-      redirect_to index
-      # flash message
+      flash[:notice] = 'Thank you for signing up as an assistant. You can now choose a task.'
+      redirect_to tasks_path
     else
-      # client side validation?
+      flash[:danger] = "Your registration didn't get through, please fill in all fields."
+      render action: "new"
     end
   end
 
   private
 
   def assistant_params
-    params.require(:assistant).permit(:title, :description)
+    params.require(:assistant).permit(:full_name, :email, :phone)
   end
 
 end

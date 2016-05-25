@@ -10,46 +10,28 @@
   </div>
 </header>
 
-<% flash.each do |name, msg| -%>
-<%= content_tag :div, msg, class: name %>
-<% end -%>
-
 <main class="container sm-pt-1 sm-pb-1 lg-pt-2 lg-pb-2">
-  <h2>Welcome <%= "#{@user.first_name} #{@user.last_name}" %></h2>
-
   <%= form_for @task do |f| %>
-  <div class="row sm-pb-1">
-    <%= f.label :full_name, :class => 'sm-12 lg-2' %>
-    <div class="sm-12 lg-10">
-      <%= f.text_field :full_name , :value => "#{@user.first_name} #{@user.last_name}" %>
-    </div>
-  </div>
-  <div class="row sm-pb-1">
-    <%= f.label :email, :class => 'sm-12 lg-2' %>
-    <div class="sm-12 lg-10">
-      <%= f.text_field :email , :placeholder => 'e.g. Awesome Sauce', value: @user.email %>
-    </div>
-  </div>
-  <div class="row sm-pb-1">
-    <%= f.label :phone, :class => 'sm-12 lg-2' %>
-    <div class="sm-12 lg-10">
-      <%= f.text_field :phone , :placeholder => 'e.g. Awesome Sauce' %>
-    </div>
-  </div>
-  <div class="row sm-pb-1">
-    <%= f.label :title, :class => 'sm-12 lg-2' %>
-    <div class="sm-12 lg-10">
-      <%= f.text_field :title , :placeholder => 'e.g. Awesome Sauce'%>
-    </div>
-  </div>
-  <div class="row sm-pb-1">
-    <%= f.label :description, :class => 'sm-12 lg-2' %>
-    <div class="sm-12 lg-10">
-      <%= f.text_area :description , :placeholder => 'e.g. Awesome Sauce'%>
-    </div>
-  </div>
+    I'm looking for someone who can help me
 
-  <%= f.submit %>
+    <%= f.text_field :title , :placeholder => 'be awesome', 'data-subline' => 'For example: be awesome' %>
+
+    with description of
+
+    <%= f.text_area :description , :placeholder => 'cleaning my mess', 'data-subline' => 'For example: cleaning my mess' %>
+    <div class="nl-submit-wrap">
+
+      <%= button_to @task, :class => 'nl-submit' do %>
+        Create
+      <% end %>
+
+    </div>
+    <div class="nl-overlay"></div>
+
   <% end %>
 
 </main>
+
+<script>
+  var nlform = new NLForm( document.getElementById( 'new_task' ) );
+</script>

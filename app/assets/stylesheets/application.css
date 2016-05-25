@@ -3428,78 +3428,6 @@ body:after {
       margin: 0 0.71429em;
       float: left; }
 
-::-webkit-input-placeholder {
-  /* WebKit, Blink, Edge */
-  color: #9BAAB8; }
-
-:-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  color: #9BAAB8; }
-
-::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  color: #9BAAB8; }
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #9BAAB8; }
-
-.title,
-label {
-  font-weight: 600;
-  display: block; }
-
-select {
-  outline: none; }
-
-label {
-  color: #f2f2f2; }
-  @media (min-width: 63.75em) {
-    label {
-      line-height: 3.28571em; } }
-  label.error {
-    line-height: 1;
-    color: #D0021B;
-    padding-top: 0.71429em; }
-
-input:not([type=submit]):not([type=file]),
-textarea {
-  border: solid 1px #CED7DF;
-  border-radius: 3px;
-  height: 3.28571em;
-  line-height: 3.28571em;
-  margin: 0;
-  box-sizing: border-box; }
-
-input:not([type=submit]):not([type=file]):focus,
-textarea:focus {
-  outline: none;
-  border-color: #6E4985;
-  background-color: #FAF6FD; }
-
-input:not([type=submit]):not([type=file]),
-textarea {
-  width: 100%;
-  padding-left: 10px;
-  padding-right: 10px;
-  background: transparent;
-  transition: border 0.2s;
-  transition: border 0.2s; }
-  input:not([type=submit]):not([type=file]):disabled,
-  textarea:disabled {
-    background: #E6D3F4;
-    color: #E2DDE5; }
-  input:not([type=submit]):not([type=file]).error,
-  textarea.error {
-    background: #FFEFF1;
-    color: #D0021B;
-    border-color: #D0021B; }
-
-textarea {
-  resize: none;
-  min-height: 7.14286em;
-  vertical-align: top; }
-
 button {
   border: none;
   box-shadow: none;
@@ -3538,26 +3466,26 @@ input[type="submit"] {
 
 @font-face {
   font-family: 'nlicons';
-  src: url("../fonts/nlicons/nlicons.eot");
-  src: url("../fonts/nlicons/nlicons.eot?#iefix") format("embedded-opentype"), url("../fonts/nlicons/nlicons.woff") format("woff"), url("../fonts/nlicons/nlicons.ttf") format("truetype"), url("../fonts/nlicons/nlicons.svg#nlicons") format("svg");
+  src: url("nlicons/nlicons.eot");
+  src: url("nlicons/nlicons.eot?#iefix") format("embedded-opentype"), url("nlicons/nlicons.woff") format("woff"), url("nlicons/nlicons.ttf") format("truetype"), url("nlicons/nlicons.svg#nlicons") format("svg");
   font-weight: normal;
   font-style: normal; }
 /* general style for the form */
-.nl-form {
+.new_task {
   width: 100%;
   margin: 0.3em auto 0 auto;
   font-size: 4em;
   line-height: 1.5; }
 
-.nl-form ul {
+.new_task ul {
   list-style: none;
   margin: 0;
   padding: 0; }
 
 /* normalize the input elements, make them look like everything else */
-.nl-form input,
-.nl-form select,
-.nl-form button {
+.new_task input,
+.new_task select,
+.new_task button {
   border: none;
   background: transparent;
   font-family: inherit;
@@ -3571,7 +3499,7 @@ input[type="submit"] {
   -webkit-appearance: none;
   -moz-appearance: none; }
 
-.nl-form input:focus {
+.new_task input:focus {
   outline: none; }
 
 /* custom field (drop-down, text element) styling  */
@@ -3584,8 +3512,8 @@ input[type="submit"] {
 
 /* the toggle is the visible part in the form */
 .nl-field-toggle,
-.nl-form input,
-.nl-form select {
+.new_task input,
+.new_task select {
   line-height: inherit;
   display: inline-block;
   color: #b14943;
@@ -3664,7 +3592,7 @@ input[type="submit"] {
   border-bottom: none;
   color: #fff; }
 
-.nl-form .nl-field-go {
+.new_task .nl-field-go {
   position: absolute;
   right: 0;
   top: 0;
@@ -3721,7 +3649,7 @@ input:focus::-ms-input-placeholder {
 .nl-submit-wrap {
   margin-top: 0.4em; }
 
-.nl-form .nl-submit {
+.new_task .nl-submit {
   line-height: 3;
   text-transform: uppercase;
   cursor: pointer;
@@ -3741,11 +3669,11 @@ input:focus::-ms-input-placeholder {
   margin: 0 0.8em 0 0;
   background: #69B1A9; }
 
-.no-touch .nl-form .nl-submit:hover,
-.no-touch .nl-form .nl-submit:active {
+.no-touch .new_task .nl-submit:hover,
+.no-touch .new_task .nl-submit:active {
   background: #69B1A9; }
 
-.no-touch .nl-form .nl-submit:hover:before {
+.no-touch .new_task .nl-submit:hover:before {
   background: #58a199; }
 
 /* overlay becomes visible when a field is opened */
@@ -3771,10 +3699,10 @@ input:focus::-ms-input-placeholder {
   transition-delay: 0s; }
 
 @media screen and (max-width: 45em) {
-  .nl-form {
+  .new_task {
     font-size: 3em; } }
 @media screen and (max-width: 25em) {
-  .nl-form {
+  .new_task {
     font-size: 2em; } }
 .task {
   padding: 0.71429em 25% 0.71429em 1.42857em;

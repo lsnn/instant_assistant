@@ -1,32 +1,32 @@
 @font-face {
 	font-family: 'nlicons';
-	src:url('../fonts/nlicons/nlicons.eot');
-	src:url('../fonts/nlicons/nlicons.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/nlicons/nlicons.woff') format('woff'),
-		url('../fonts/nlicons/nlicons.ttf') format('truetype'),
-		url('../fonts/nlicons/nlicons.svg#nlicons') format('svg');
+	src:url('nlicons/nlicons.eot');
+	src:url('nlicons/nlicons.eot?#iefix') format('embedded-opentype'),
+		url('nlicons/nlicons.woff') format('woff'),
+		url('nlicons/nlicons.ttf') format('truetype'),
+		url('nlicons/nlicons.svg#nlicons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 /* general style for the form */
-.nl-form {
+.new_task {
 	width: 100%;
 	margin: 0.3em auto 0 auto;
 	font-size: 4em;
 	line-height: 1.5;
 }
 
-.nl-form ul {
+.new_task ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
 /* normalize the input elements, make them look like everything else */
-.nl-form input,
-.nl-form select,
-.nl-form button {
+.new_task input,
+.new_task select,
+.new_task button {
 	border: none;
 	background: transparent;
 	font-family: inherit;
@@ -41,7 +41,7 @@
 	-moz-appearance: none;
 }
 
-.nl-form input:focus {
+.new_task input:focus {
 	outline: none;
 }
 
@@ -57,8 +57,8 @@
 
 /* the toggle is the visible part in the form */
 .nl-field-toggle,
-.nl-form input,
-.nl-form select  {
+.new_task input,
+.new_task select  {
 	line-height: inherit;
 	display: inline-block;
 	color: #b14943;
@@ -149,7 +149,7 @@
 	color: #fff;
 }
 
-.nl-form .nl-field-go {
+.new_task .nl-field-go {
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -217,7 +217,7 @@ input:focus::-ms-input-placeholder {
 	margin-top: 0.4em;
 }
 
-.nl-form .nl-submit {
+.new_task .nl-submit {
 	line-height: 3;
 	text-transform: uppercase;
 	cursor: pointer;
@@ -239,12 +239,12 @@ input:focus::-ms-input-placeholder {
 	background: #69B1A9;
 }
 
-.no-touch .nl-form .nl-submit:hover,
-.no-touch .nl-form .nl-submit:active {
+.no-touch .new_task .nl-submit:hover,
+.no-touch .new_task .nl-submit:active {
 	background: #69B1A9;
 }
 
-.no-touch .nl-form .nl-submit:hover:before {
+.no-touch .new_task .nl-submit:hover:before {
 	background: #58a199;
 }
 
@@ -273,13 +273,13 @@ input:focus::-ms-input-placeholder {
 }
 
 @media screen and (max-width: 45em) {
-	.nl-form {
+	.new_task {
 		font-size: 3em;
 	}
 }
 
 @media screen and (max-width: 25em) {
-	.nl-form {
+	.new_task {
 		font-size: 2em;
 	}
 }

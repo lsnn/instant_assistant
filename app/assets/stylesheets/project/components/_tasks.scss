@@ -16,6 +16,30 @@
 
 	p { margin: 0; }
 
+	&.expired {
+		background-color: cl('grey-light');
+		color: cl('grey-light-font');
+		.actions { color: darken(cl('grey-light-font'), 20%); }
+		.button {
+			background-color: cl('grey-light-font');
+			color: cl('grey-light');
+		}
+	}
+
+	&.taken {
+		min-height: auto;
+		background-color: cl('green-light');
+		color: cl('green-dark');
+	}
+
+}
+
+.checkblock {
+	height: 100%;
+	background-color: cl('green-dark');
+	color: cl('white');
+	padding: em(10px) em(20px);
+	box-sizing: border-box;
 }
 
 .actions {

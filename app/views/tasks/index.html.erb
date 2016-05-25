@@ -3,8 +3,8 @@
     <h1 class="h3">Instant Assistant</h1>
     <nav class="mainheader__nav">
       <ul>
-        <li><a href="" class="active">Create a task</a></li>
-        <%= link_to "Give me a task", tasks_path %>
+        <li><%= link_to "Create a task", root_path %></li>
+        <li><%= link_to "Show me tasks", tasks_path, :class => 'active' %></li>
       </ul>
     </nav>
   </div>
@@ -14,9 +14,8 @@
   <ul class="tasks">
     <% @tasks.each do |t| %>
     <li class="task">
-      <h2><%= t.title %></h2>
+      <h2><%= t.title %> in 10 minutes</h2>
       <p><%= t.description %></p>
-
       <div class="actions">
         <p class="est">You'll earn:&euro; 50</p>
         <%= link_to "Pick this task", {controller: 'tasks', action: 'assign_task', id: t.id},
@@ -24,6 +23,32 @@
       </div>
     </li>
     <% end %>
+
+    <li class="task taken">
+      <h2>Dummy text title in x hour</h2>
+      <p>This is just a dummy description</p>
+
+      <div class="actions">
+<!--         <p>
+          Task is taken by Ivana
+          <br>
+          <time>25 May 2016 at 13:30</time>
+        </p> -->
+        <div class="checkblock">
+          Task is taken by Ivana<br>
+          <time>25 May 2016 at 13:30</time>
+        </div>
+      </div>
+    </li>
+
+    <li class="task expired">
+      <h2>Dummy text title in x hour</h2>
+      <p>This is just a dummy description</p>
+      <div class="actions">
+        <p class="est">You could've earned:&euro; 50</p>
+        <a href="" class="button button--small">Expired</a>
+      </div>
+    </li>
   </ul>
 </main>
 

@@ -14,9 +14,8 @@
   <ul class="tasks">
     <% @tasks.each do |t| %>
     <li class="task">
-      <h2><%= t.title %></h2>
+      <h2><%= t.title %> in 10 minutes</h2>
       <p><%= t.description %></p>
-
       <div class="actions">
         <p class="est">You'll earn:&euro; 50</p>
         <a href="" class="button button--small">Pick this task</a>
@@ -25,15 +24,28 @@
     <% end %>
 
     <li class="task taken">
-      <h2>Dummy text title</h2>
+      <h2>Dummy text title in x hour</h2>
       <p>This is just a dummy description</p>
 
       <div class="actions">
-        <p>
+<!--         <p>
           Task is taken by Ivana
           <br>
           <time>25 May 2016 at 13:30</time>
-        </p>
+        </p> -->
+        <div class="checkblock">
+          Task is taken by Ivana<br>
+          <time>25 May 2016 at 13:30</time>
+        </div>
+      </div>
+    </li>
+
+    <li class="task expired">
+      <h2>Dummy text title in x hour</h2>
+      <p>This is just a dummy description</p>
+      <div class="actions">
+        <p class="est">You could've earned:&euro; 50</p>
+        <a href="" class="button button--small">Expired</a>
       </div>
     </li>
   </ul>

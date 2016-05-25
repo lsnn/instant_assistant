@@ -1,0 +1,33 @@
+.tasks {
+	@extend %clearlist;
+}
+
+.task {
+	padding: em(10px) 25% em(10px) em(20px);
+	background-color: lighten(cl('purple-light'), 8%);
+	position: relative;
+	min-height: em(70px);
+
+	h2 {
+		@extend .h4;
+		margin-bottom: 0;
+		font-family: $font-base;
+	}
+
+	p { margin: 0; }
+
+}
+
+.actions {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 25%;
+	height: 100%;
+	text-align: right;
+
+	> a, > p {
+		margin-top: em(10px);
+		margin-right: em(20px);
+	}
+}

@@ -1,5 +1,6 @@
 body {
-	font-family: $font-sans-serif;
+	font-family: $font-base;
+	font-weight: 300;
 	font-size: em($font-size-default, 16px);
 	line-height: 1.75em;
 	-webkit-font-smoothing: antialiased;
@@ -10,7 +11,8 @@ h1, h2, h3, h4, h5, h6,
 	font-weight: 600;
 	line-height: 1.3em;
 	margin: 0 0 .5em;
-	font-weight: 300;
+	font-weight: 700;
+	font-family: $font-montserrat;
 }
 
 .h1, h1 {

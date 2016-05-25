@@ -1,4 +1,22 @@
+%clearfloat {
+	&:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+}
+
+%clearlist {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
 .mainheader {
 	background-color: cl('purple');
-	a { color: cl('white'); }
+	@extend %clearfloat;
+	h1, a { color: cl('white'); }
+	&____nav {
+		@extend %clearlist;
+	}
 }

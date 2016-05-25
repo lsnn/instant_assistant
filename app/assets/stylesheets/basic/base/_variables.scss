@@ -10,7 +10,10 @@ $radius: 3px;
 // * TYPOGRAPHY
 // *******************************************************************************
 $font-size-default: 14px;
-$font-sans-serif: 'Open Sans', sans-serif;
+$font-serif: Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+$font-montserrat: 'Montserrat', Helvetica, sans-serif;
+$font-base: 'Merriweather', $font-serif;
+// $font-sans-serif: $font-montserrat, 'Open Sans', sans-serif;
 
 //debug level 0 = disable debug,
 //debug level 1 = develop, shows warning, but compiles all the templates
@@ -67,8 +70,6 @@ $spacing-distance: (
 	lg: 30px,
 	xl: 30px
 );
-
-// $spacing-distance: 20px;
 
 // *******************************************************************************
 // * COLOURS

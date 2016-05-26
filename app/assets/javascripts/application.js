@@ -302,10 +302,8 @@ $.fn.gMapsLatLonPicker = (function() {
 		$(_self.vars.cssID + ".gllpLongitude").val( position.lng() );
 		$(_self.vars.cssID + ".gllpLatitude").val( position.lat() );
 
-		console.log('1 lat', $(_self.vars.cssID + ".gllpLongitude").val( position.lng() ));
-		console.log('1 lng', $(_self.vars.cssID + ".gllpLatitude").val( position.lat() ));
-		console.log($('.gllpLatitude').val());
-		console.log($('.gllpLongitude').val());
+		console.log('setPosition', $('.gllpLatitude').val());
+		console.log('setPosition', $('.gllpLongitude').val());
 
 		$(_self.vars.cssID).trigger("location_changed", $(_self.vars.cssID));
 
@@ -444,7 +442,7 @@ $.fn.gMapsLatLonPicker = (function() {
 
 			// Search function by search button
 			$(_self.vars.cssID + ".gllpSearchButton").bind("click", function() {
-				console.log('yes');
+				console.log('yes', _self.vars.cssID);
 				performSearch( $(_self.vars.cssID + ".gllpSearchField").val(), false );
 			});
 
@@ -481,7 +479,18 @@ $(document).ready( function() {
 			$obj = $(document).gMapsLatLonPicker();
 			$obj.init( $(this) );
 		});
+
+		$(".gllpLatlonPickerTo").each(function () {
+			$obj = $(document).gMapsLatLonPicker();
+			$obj.init( $(this) );
+		});
 	}
+
+	$('.gllpSearchButtonFrom').click(function(e) {
+		e.preventDefault();
+		// $(this).parents('.gllpLatlonPicker').hide();
+		// $('.gllpLatlonPickerTo').show();
+	});
 });
 
 $(document).bind("location_changed", function(event, object) {

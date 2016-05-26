@@ -312,15 +312,39 @@ $.fn.gMapsLatLonPicker = (function() {
 			el.setAttribute('start_lng', $('.gllpLongitude').val());
 			$('.ubercall').attr('start_lat', $('.gllpLatitude').val());
 			$('.ubercall').attr('start_lng', $('.gllpLongitude').val());
+
 			$(el).addClass('active');
+
+		    setTimeout(function() {
+		        $(el).addClass('hide');
+		    }, 1000);
+
+		    $('.gllpSearchButtonTo').removeClass('hide').addClass('show');
 			$('.location-start').addClass('hide');
 			$('.location-end').addClass('show');
+			var startVal = $('.gllpSearchField').val();
+
+			$('.xtart').removeClass('hide').addClass('show');
+			$('.getStartlocation')
+				.text(startVal)
+				.addClass('show');
+
 		} else if ($(el).hasClass('gllpSearchButtonTo')) {
 			el.setAttribute('end_lat', $('.gllpLatitude').val());
 			el.setAttribute('end_lng', $('.gllpLongitude').val());
 			$('.ubercall').attr('end_lat', $('.gllpLatitude').val());
 			$('.ubercall').attr('end_lng', $('.gllpLongitude').val());
 			$(el).addClass('active');
+			var endVal = $('.gllpSearchField').val();
+
+			$('.xend').removeClass('hide').addClass('show');
+			$('.getEndlocation')
+				.text(endVal)
+				.addClass('show');
+		    setTimeout(function() {
+		        $(el).addClass('hide');
+		    }, 1000);
+		    $('.requber').removeClass('hide').addClass('show');
 		}
 
 
@@ -512,10 +536,24 @@ $(document).ready( function() {
 		var end_lat = $('.ubercall').attr('end_lat');
 		var end_lng = $('.ubercall').attr('end_lng');
 		var reqURL = '/tasks/request_uber?start_lat=' + start_lat + '&start_lng=' + start_lng + '&end_lat=' + end_lat + '&end_lng' + end_lng
+		$('.ubercall')
+			.attr('href', reqURL);
+	    setTimeout(function() {
+	        $('.confirmlocation').addClass('hide');
+	    }, 500);
 
-		$('.ubercall').attr('href', reqURL);
+
+	    setTimeout(function() {
+			$('.ubercall')
+				.removeClass('hide')
+				.addClass('show');
+	    }, 800);
+
 	});
 
+	$('.refresh').click(function() {
+	    location.reload();
+	});
 });
 
 $(document).bind("location_changed", function(event, object) {

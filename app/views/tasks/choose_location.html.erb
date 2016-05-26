@@ -8,9 +8,18 @@
 			zoom: <input type="text" class="gllpZoom" value="15"/>
 		</div>
 		<button class="button button--darken gllpSearchButton gllpSearchButtonFrom"><i class="fa fa-check-circle" aria-hidden="true"></i>Get pickup location</button>
-		<button class="button button--darken gllpSearchButtonTo"><i class="fa fa-check-circle" aria-hidden="true"></i>Get Dropoff location</button>
-		<a href="" class="confirmlocation">Confirm locations</a>
-		<%= link_to "Request UBER", {controller: 'tasks' ,action: 'request_uber', start_lat: '52.3702157', start_lng: '4.895167899999933', end_lat: '4.895167899999933', end_lng: '77.20902120000005'}, class: 'button button--small ubercall' %>
+		<button class="button button--darken gllpSearchButtonTo hide"><i class="fa fa-check-circle" aria-hidden="true"></i>Get Dropoff location</button>
+
+		<a href="" class="button button--small refresh"><i class="fa fa-refresh" aria-hidden="true"></i> Refresh requests</a>
+
+		<p class="xtart hide">Your current location is: <br><span class="getStartlocation"></span></p>
+		<p class="xend hide">Your end point is: <br><span class="getEndlocation"></span></p>
+
+		<div class="requber hide">
+			<a href="" class="confirmlocation button button--small"><i class="fa fa-map-marker" aria-hidden="true"></i>Confirm locations</a>
+			<%= link_to "Request UBER", {controller: 'tasks' ,action: 'request_uber', start_lat: '52.3702157', start_lng: '4.895167899999933', end_lat: '4.895167899999933', end_lng: '77.20902120000005'}, class: 'button button--small ubercall hide' %>
+					</div>
+
 	</div>
 	<div id="map" class="gllpMap"></div>
 </fieldset>

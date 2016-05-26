@@ -58,6 +58,7 @@ body {
 	z-index: 2;
 	padding: 20px;
 	background-color: lighten(cl('purple'), 15%);
+	box-sizing: border-box;
 }
 
 .gllpSearchField {
@@ -69,15 +70,52 @@ body {
 	transition: all 0.2s;
 }
 
-.location-end { opacity: 0; }
-
+.location-end { opacity: 0; display: none; }
+.gllpSearchButtonFrom,
+.gllpSearchButtonTo {
+	margin-top: 10px;
+}
 .show {
 	visibility: visible;
 	opacity: 1;
+	display: block;
 }
 
 .hide {
 	visibility: hidden;
 	opacity: 0;
-	display: none;
+	display: none !important;
+}
+
+.refresh {
+	text-align: center;
+	width: 150px !important;
+	color: cl('white');
+	display: block;
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	background-color: #333 !important;
+	i { margin-right: 5px;}
+	&:hover {
+		background-color: #000 !important;
+	}
+}
+
+.confirmlocation {
+	i { margin-right: 5px;}
+	background-color: darken(cl('green'), 20%) !important;
+	&:hover {
+		background-color: darken(cl('green'), 10%) !important;
+	}
+}
+
+.ubercall {
+	background-color: #F26C00 !important;
+}
+
+.xtart, .xend {
+	padding: 10px;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: cl('white');
 }

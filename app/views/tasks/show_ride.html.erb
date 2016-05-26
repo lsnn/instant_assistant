@@ -1,13 +1,28 @@
- <header class="mainheader">
-   <div class="container sm-pt-1 sm-pb-1">
-    <% flash.each do |name, msg| -%>
-    <h4><%= content_tag :div, msg, class: name, style: 'color: white' %><h4>
-    <% end -%>
+ <header class="mainheader showrideheader">
+  <div class="container sm-pt-1 sm-pb-1">
+    <h1 class="h3">Instant Assistant</h1>
+    <nav class="mainheader__nav">
+      <ul>
+        <li><%= link_to "Create a task", root_path %></li>
+        <li><%= link_to "Show me tasks", tasks_path %></li>
+        <li><%= link_to "Sign up", new_assistant_path %></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
 <main class="container sm-pt-1 sm-pb-1 md-pt-2 md-pb-2">
-  <div id="map"></div>
+  <% flash.each do |name, msg| -%>
+  <h4><%= content_tag :div, msg, class: name, style: 'color: white' %><h4>
+  <% end -%>
+  <div id="maprd"></div>
+  <div class="driver">
+    <div class="john">
+      <%= image_tag('john.jpg', size:'80x80') %>
+    </div>
+    <span class="name">John</span>
+    <span class="phone"><i class="fa fa-phone" aria-hidden="true"></i>(555)555-5555</span>
+  </div>
   <div class="for-future-banner">
     <h3>On this map you can follow the Uber car.</h3>
   </div>
@@ -16,10 +31,18 @@
 <script>
   var map;
   function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 8
+    map = new google.maps.Map(document.getElementById('maprd'), {
+      center: {lat: 52.3863436, lng: 4.87281669999993},
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      scrollwheel: false,
+      mapTypeControl: false,
+      disableDoubleClickZoom: true,
+      zoomControlOptions: true,
+      streetViewControl: false
     });
   }
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvi-Zm2zjuPQloKoy-JqDu1iQJKKz-TAQ&callback=initMap"
+async defer></script>
 

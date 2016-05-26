@@ -31,9 +31,13 @@
           <%= t.assistant.full_name.split(' ').first %> is taking care of it <br>at
           <time><%= t.updated_at.strftime("%d %B %Y %H:%M") %></time>
 
-          <%= link_to "UBER", 'tasks/choose_location', class: 'button button--small' %>
+          <div class="nextactions">
+            <%= link_to "UBER", 'tasks/choose_location', class: 'button button--small' %>
+            <%= link_to "Cancel", { controllers: 'tasks', action: "cancel_task", id: t.id }, 'data-push-notification-cancel' => '', 'data-push-notification-title' => t.title, class: 'button button--small button--cancel' %>
+          </div>
 
           <%= link_to "Cancel", { action: "cancel_task", id: t.id }, 'data-push-notification-cancel' => '', 'data-push-notification-title' => t.title, class: 'button button--small button--cancel' %>
+
         </div>
         <% end %>
       </div>

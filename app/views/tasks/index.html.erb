@@ -4,7 +4,6 @@
     <nav class="mainheader__nav">
       <ul>
         <li><%= link_to "Create a task", root_path %></li>
-
         <li><%= link_to "Show me tasks", tasks_path, :class => 'active' %></li>
         <li><%= link_to "Sign up", new_assistant_path %></li>
       </ul>
@@ -44,20 +43,8 @@
     </li>
     <% end %>
 
-    <li class="task taken">
-      <h2>Dummy text title in x hour</h2>
-      <p>This is just a dummy description</p>
-
-      <div class="actions">
-        <div class="checkblock">
-          Task is taken by Ivana<br>
-          <time>25 May 2016 at 13:30</time>
-        </div>
-      </div>
-    </li>
-
     <li class="task expired">
-      <h2>Dummy text title in x hour</h2>
+      <h2>do all my groceries for the next year</h2>
       <p>This is just a dummy description</p>
       <div class="actions">
         <p class="est">You could've earned:&euro; 50</p>

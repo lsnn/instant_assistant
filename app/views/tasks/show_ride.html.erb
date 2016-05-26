@@ -1,1 +1,22 @@
-A map will show here where you can follow the uber car.
+ <header class="mainheader">
+   <div class="container sm-pt-1 sm-pb-1">
+    <% flash.each do |name, msg| -%>
+    <h4><%= content_tag :div, msg, class: name, style: 'color: white' %><h4>
+    <% end -%>
+  </div>
+</header>
+
+<main class="container sm-pt-1 sm-pb-1 md-pt-2 md-pb-2">
+  <div id="map"></div>
+</main>
+
+<script>
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -34.397, lng: 150.644},
+      zoom: 8
+    });
+  }
+</script>
+

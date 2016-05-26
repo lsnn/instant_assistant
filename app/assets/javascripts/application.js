@@ -302,6 +302,11 @@ $.fn.gMapsLatLonPicker = (function() {
 		$(_self.vars.cssID + ".gllpLongitude").val( position.lng() );
 		$(_self.vars.cssID + ".gllpLatitude").val( position.lat() );
 
+		console.log('1 lat', $(_self.vars.cssID + ".gllpLongitude").val( position.lng() ));
+		console.log('1 lng', $(_self.vars.cssID + ".gllpLatitude").val( position.lat() ));
+		console.log($('.gllpLatitude').val());
+		console.log($('.gllpLongitude').val());
+
 		$(_self.vars.cssID).trigger("location_changed", $(_self.vars.cssID));
 
 		if (_self.params.queryLocationNameWhenLatLngChanges) {
@@ -431,6 +436,8 @@ $.fn.gMapsLatLonPicker = (function() {
 				var lat = $(_self.vars.cssID + ".gllpLatitude").val();
 				var lng = $(_self.vars.cssID + ".gllpLongitude").val();
 				var latlng = new google.maps.LatLng(lat, lng);
+				console.log('new lat', lat);
+				console.log('new lng', lng);
 				_self.vars.map.setZoom( parseInt( $(_self.vars.cssID + ".gllpZoom").val() ) );
 				setPosition(latlng);
 			});
@@ -451,6 +458,8 @@ $.fn.gMapsLatLonPicker = (function() {
 				var lat = $(_self.vars.cssID + ".gllpLatitude").val();
 				var lng = $(_self.vars.cssID + ".gllpLongitude").val();
 				var latlng = new google.maps.LatLng(lat, lng);
+				console.log('new lat', lat);
+				console.log('new lng', lng);
 				_self.vars.map.setZoom( parseInt( $(_self.vars.cssID + ".gllpZoom").val() ) );
 				setPosition(latlng);
 			});
@@ -468,9 +477,7 @@ $.fn.gMapsLatLonPicker = (function() {
 
 $(document).ready( function() {
 	if (!$.gMapsLatLonPickerNoAutoInit) {
-		console.log('whataa');
 		$(".gllpLatlonPicker").each(function () {
-			console.log(this);
 			$obj = $(document).gMapsLatLonPicker();
 			$obj.init( $(this) );
 		});

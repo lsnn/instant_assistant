@@ -3422,7 +3422,8 @@ body {
   height: 100%;
   z-index: 2;
   padding: 20px;
-  background-color: #956cae; }
+  background-color: #956cae;
+  box-sizing: border-box; }
 
 .gllpSearchField {
   width: 100% !important; }
@@ -3432,16 +3433,51 @@ body {
   transition: all 0.2s; }
 
 .location-end {
-  opacity: 0; }
+  opacity: 0;
+  display: none; }
+
+.gllpSearchButtonFrom,
+.gllpSearchButtonTo {
+  margin-top: 10px; }
 
 .show {
   visibility: visible;
-  opacity: 1; }
+  opacity: 1;
+  display: block; }
 
 .hide {
   visibility: hidden;
   opacity: 0;
-  display: none; }
+  display: none !important; }
+
+.refresh {
+  text-align: center;
+  width: 150px !important;
+  color: #f2f2f2;
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: #333 !important; }
+  .refresh i {
+    margin-right: 5px; }
+  .refresh:hover {
+    background-color: #000 !important; }
+
+.confirmlocation {
+  background-color: #016b28 !important; }
+  .confirmlocation i {
+    margin-right: 5px; }
+  .confirmlocation:hover {
+    background-color: #029d3b !important; }
+
+.ubercall {
+  background-color: #F26C00 !important; }
+
+.xtart, .xend {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #f2f2f2; }
 
 .content:after, .mainheader:after {
   display: block;

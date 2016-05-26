@@ -3868,4 +3868,15 @@ input[type="submit"] {
     display: inline-block;
     margin-right: 5px; }
 
+.for-future-banner {
+  height: 250px;
+  background-color: rgba(120, 117, 121, 0.7);
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 100px; }
+  .for-future-banner h3 {
+    position: relative;
+    top: 100px; }
+
 /*# sourceMappingURL=application.css.map */

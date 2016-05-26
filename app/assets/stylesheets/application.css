@@ -3421,7 +3421,27 @@ body {
   left: 0;
   height: 100%;
   z-index: 2;
-  background-color: #6E4985; }
+  padding: 20px;
+  background-color: #956cae; }
+
+.gllpSearchField {
+  width: 100% !important; }
+
+.location-start,
+.location-end {
+  transition: all 0.2s; }
+
+.location-end {
+  opacity: 0; }
+
+.show {
+  visibility: visible;
+  opacity: 1; }
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  display: none; }
 
 .content:after, .mainheader:after {
   display: block;
@@ -3492,9 +3512,6 @@ fieldset {
   background: transparent;
   transition: border 0.2s;
   transition: border 0.2s; }
-
-.locationform {
-  padding: 0.71429em 0 1.42857em; }
 
 @font-face {
   font-family: 'nlicons';
@@ -3839,5 +3856,16 @@ input[type="submit"] {
 
 .button--darken {
   background-color: #1c1322; }
+
+.gllpSearchButton i,
+.gllpSearchButtonTo i {
+  display: none; }
+.gllpSearchButton.active,
+.gllpSearchButtonTo.active {
+  background-color: #016b28; }
+  .gllpSearchButton.active i,
+  .gllpSearchButtonTo.active i {
+    display: inline-block;
+    margin-right: 5px; }
 
 /*# sourceMappingURL=application.css.map */

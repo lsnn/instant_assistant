@@ -47,3 +47,15 @@ input[type="submit"] { float: right; }
 .button--darken {
 	background-color: darken(cl('purple'), 30%);
 }
+
+.gllpSearchButton,
+.gllpSearchButtonTo {
+	i { display: none; }
+	&.active {
+		background-color: darken(cl('green'), 20%);
+		i {
+			display: inline-block;
+			margin-right: 5px;
+		}
+	}
+}

@@ -56,5 +56,28 @@ body {
 	left: 0;
 	height: 100%;
 	z-index: 2;
-	background-color: cl('purple');
+	padding: 20px;
+	background-color: lighten(cl('purple'), 15%);
+}
+
+.gllpSearchField {
+	width: 100% !important;
+}
+
+.location-start,
+.location-end {
+	transition: all 0.2s;
+}
+
+.location-end { opacity: 0; }
+
+.show {
+	visibility: visible;
+	opacity: 1;
+}
+
+.hide {
+	visibility: hidden;
+	opacity: 0;
+	display: none;
 }

@@ -310,9 +310,17 @@ $.fn.gMapsLatLonPicker = (function() {
 		if ($(el).hasClass('gllpSearchButtonFrom')) {
 			el.setAttribute('start_lat', $('.gllpLatitude').val());
 			el.setAttribute('start_lng', $('.gllpLongitude').val());
+			$('.ubercall').attr('start_lat', $('.gllpLatitude').val());
+			$('.ubercall').attr('start_lng', $('.gllpLongitude').val());
+			$(el).addClass('active');
+			$('.location-start').addClass('hide');
+			$('.location-end').addClass('show');
 		} else if ($(el).hasClass('gllpSearchButtonTo')) {
 			el.setAttribute('end_lat', $('.gllpLatitude').val());
 			el.setAttribute('end_lng', $('.gllpLongitude').val());
+			$('.ubercall').attr('end_lat', $('.gllpLatitude').val());
+			$('.ubercall').attr('end_lng', $('.gllpLongitude').val());
+			$(el).addClass('active');
 		}
 
 
@@ -497,11 +505,17 @@ $(document).ready( function() {
 
 	}
 	// $('.gllpLatlonPickerTo').hide();
-	$('.gllpSearchButtonFrom').click(function(e) {
+	$('.confirmlocation').click(function(e) {
 		e.preventDefault();
-		// $(this).parents('.gllpLatlonPicker').hide();
-		// $('.gllpLatlonPickerTo').show();
+		var start_lat = $('.ubercall').attr('start_lat');
+		var start_lng = $('.ubercall').attr('start_lng');
+		var end_lat = $('.ubercall').attr('end_lat');
+		var end_lng = $('.ubercall').attr('end_lng');
+		var reqURL = '/tasks/request_uber?start_lat=' + start_lat + '&start_lng=' + start_lng + '&end_lat=' + end_lat + '&end_lng' + end_lng
+
+		$('.ubercall').attr('href', reqURL);
 	});
+
 });
 
 $(document).bind("location_changed", function(event, object) {

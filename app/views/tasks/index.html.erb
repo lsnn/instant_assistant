@@ -6,7 +6,7 @@
         <li><%= link_to "Create a task", root_path %></li>
 
         <li><%= link_to "Show me tasks", tasks_path, :class => 'active' %></li>
-        <li><%= link_to "Assistant", new_assistant_path %></li>
+        <li><%= link_to "Sign up", new_assistant_path %></li>
       </ul>
     </nav>
   </div>
@@ -18,7 +18,7 @@
   <% end -%>
 
   <ul class="tasks">
-    <% @tasks.each do |t| %>
+    <% @tasks.order(available: :desc).each do |t| %>
     <li class="task <%= 'taken' if t.available == false %>">
       <h2><%= t.title %></h2>
       <p><%= t.description %></p>

@@ -1,45 +1,20 @@
-<!--  <fieldset class='gllpLatlonPicker'>
-	<div class="locationform">
-		From <input type="text" class="gllpSearchField" value="Amsterdam">
-		<div style='display: none;'>
-			lat/lon:
-			<input type="text" class="gllpLatitude" value="52.3702157"/>
-			<input type="text" class="gllpLongitude" value="4.895167899999933"/>
-			zoom: <input type="text" class="gllpZoom" value="11"/>
-		</div>
-		<button class="button button--darken gllpSearchButton">Pick me here</button>
-	</div>
-	<div id="map" class="gllpMap"></div>
-</fieldset> -->
-<%= link_to "Request UBER", {controller: 'tasks' ,action: 'request_uber', start_lat: '52.3702157', start_lng: '4.895167899999933', end_lat: '4.895167899999933', end_lng: '77.20902120000005'}, class: 'button button--small' %>
-<%= link_to "Confirm UBER for", {controller: 'tasks' ,action: 'confirm_uber'}, class: 'button button--small' %>
-
-
 
 <fieldset class='gllpLatlonPicker'>
 	<div class="locationform">
 		From <input type="text" class="gllpSearchField" value="Amsterdam">
-		<div>
+		<div style="display:none;">
 			lat/lon:
 			<input type="text" class="gllpLatitude" value="52.3702157"/>
 			<input type="text" class="gllpLongitude" value="4.895167899999933"/>
-			zoom: <input type="text" class="gllpZoom" value="11"/>
+			zoom: <input type="text" class="gllpZoom" value="15"/>
 		</div>
 		<button class="button button--darken gllpSearchButton gllpSearchButtonFrom">Get pickup location</button>
+		<button class="button button--darken gllpSearchButtonTo">Get Dropoff location</button>
 	</div>
 	<div id="map" class="gllpMap"></div>
 </fieldset>
 
-<fieldset class='gllpLatlonPickerTo'>
-	<div class="locationform">
-		To <input type="text" class="gllpSearchField" value="Amsterdam">
-		<div>
-			lat/lon:
-			<input type="text" class="gllpLatitude gllpLatitudeTo" value="52.3702157"/>
-			<input type="text" class="gllpLongitude gllpLongitudeTo" value="4.895167899999933"/>
-			zoom: <input type="text" class="gllpZoom" value="11"/>
-		</div>
-		<button class="button button--darken gllpSearchButton">Get drop location</button>
-	</div>
-	<!-- <div id="map" class="gllpMap"></div> -->
-</fieldset>
+<%= link_to "Request UBER", {controller: 'tasks' ,action: 'request_uber', start_lat: '52.3702157', start_lng: '4.895167899999933', end_lat: '4.895167899999933', end_lng: '77.20902120000005'}, class: 'button button--small' %>
+<%= link_to "Confirm UBER for", {controller: 'tasks' ,action: 'confirm_uber'}, class: 'button button--small' %>
+
+

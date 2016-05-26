@@ -294,7 +294,8 @@ $.fn.gMapsLatLonPicker = (function() {
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	// PRIVATE FUNCTIONS FOR MANIPULATING DATA ////////////////////////////////////////////////////
-	var setPosition = function(position) {
+	var setPosition = function(position, el) {
+		console.log('setPosition el', el);
 		_self.vars.marker.setPosition(position);
 		_self.vars.map.panTo(position);
 
@@ -302,8 +303,18 @@ $.fn.gMapsLatLonPicker = (function() {
 		$(_self.vars.cssID + ".gllpLongitude").val( position.lng() );
 		$(_self.vars.cssID + ".gllpLatitude").val( position.lat() );
 
-		console.log('setPosition', $('.gllpLatitude').val());
-		console.log('setPosition', $('.gllpLongitude').val());
+		console.log('get thus', _self.vars.cssID);
+		console.log('setPositionLat', $('.gllpLatitude').val());
+		console.log('setPositionLong', $('.gllpLongitude').val());
+
+		if ($(el).hasClass('gllpSearchButtonFrom')) {
+			el.setAttribute('start_lat', $('.gllpLatitude').val());
+			el.setAttribute('start_lng', $('.gllpLongitude').val());
+		} else if ($(el).hasClass('gllpSearchButtonTo')) {
+			el.setAttribute('end_lat', $('.gllpLatitude').val());
+			el.setAttribute('end_lng', $('.gllpLongitude').val());
+		}
+
 
 		$(_self.vars.cssID).trigger("location_changed", $(_self.vars.cssID));
 
@@ -351,7 +362,8 @@ $.fn.gMapsLatLonPicker = (function() {
 	};
 
 	// search function
-	var performSearch = function(string, silent) {
+	var performSearch = function(string, silent, el) {
+		console.log('getperformSearch', el);
 		if (string == "") {
 			if (!silent) {
 				_self.params.displayError( _self.params.strings.error_empty_field );
@@ -362,9 +374,9 @@ $.fn.gMapsLatLonPicker = (function() {
 			{"address": string},
 			function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
-					$(_self.vars.cssID + ".gllpZoom").val(11);
+					$(_self.vars.cssID + ".gllpZoom").val(15);
 					_self.vars.map.setZoom( parseInt($(_self.vars.cssID + ".gllpZoom").val()) );
-					setPosition( results[0].geometry.location );
+					setPosition( results[0].geometry.location, el );
 				} else {
 					if (!silent) {
 						_self.params.displayError( _self.params.strings.error_no_results );
@@ -434,18 +446,21 @@ $.fn.gMapsLatLonPicker = (function() {
 				var lat = $(_self.vars.cssID + ".gllpLatitude").val();
 				var lng = $(_self.vars.cssID + ".gllpLongitude").val();
 				var latlng = new google.maps.LatLng(lat, lng);
-				console.log('new lat', lat);
-				console.log('new lng', lng);
 				_self.vars.map.setZoom( parseInt( $(_self.vars.cssID + ".gllpZoom").val() ) );
 				setPosition(latlng);
 			});
 
 			// Search function by search button
 			$(_self.vars.cssID + ".gllpSearchButton").bind("click", function() {
-				console.log('yes', _self.vars.cssID);
-				performSearch( $(_self.vars.cssID + ".gllpSearchField").val(), false );
+				console.log('btn From', _self.vars.cssID);
+				performSearch( $(_self.vars.cssID + ".gllpSearchField").val(), false, this );
 			});
 
+			// Search function by search button
+			$(_self.vars.cssID + ".gllpSearchButtonTo").bind("click", function() {
+				console.log('btn to!', this);
+				performSearch( $(_self.vars.cssID + ".gllpSearchField").val(), false, this );
+			});
 			// Search function by gllp_perform_search listener
 			$(document).bind("gllp_perform_search", function(event, object) {
 				performSearch( $(object).attr('string'), true );
@@ -480,12 +495,8 @@ $(document).ready( function() {
 			$obj.init( $(this) );
 		});
 
-		$(".gllpLatlonPickerTo").each(function () {
-			$obj = $(document).gMapsLatLonPicker();
-			$obj.init( $(this) );
-		});
 	}
-
+	// $('.gllpLatlonPickerTo').hide();
 	$('.gllpSearchButtonFrom').click(function(e) {
 		e.preventDefault();
 		// $(this).parents('.gllpLatlonPicker').hide();

@@ -227,6 +227,11 @@ $(document).ready(function() {
             }
 		});
 	});
+
+	$('.nl-submit').click(function(e) {
+		$('.nl-overlay').addClass('isoverlay');
+		$('.spinner').removeClass('hide').addClass('show');
+	});
 });
 
 /**
@@ -549,6 +554,11 @@ $(document).ready( function() {
 				.addClass('show');
 	    }, 800);
 
+	});
+
+	$('.ubercall').click(function(e) {
+		$('.nl-overlay').addClass('isoverlay');
+		$('.spinner').removeClass('hide').addClass('show');
 	});
 
 	$('.refresh').click(function() {
